@@ -1,0 +1,751 @@
+@import compass
+@import compass/reset
+@import sassy-buttons
+@import config
+@import fonts
+
+html
+	font-size: $base-font-size
+
+body
+	font-family: 'Open Sans', sans-serif
+	font-weight: 300
+	text-align: center
+	padding-top: em(44px)
+	color: $base-color
+	background: $background-color
+	
+h1, h2, h3, h4, h5
+	font-family: 'Josefin Slab', serif
+	font-weight: 600
+	font-size: em(22px)
+	color: $link-color
+
+a
+	text-decoration: none
+	color: $link-color
+
+img 
+	max-width: 100%
+
+header#main-header
+	width: 100%
+	h1
+		padding-top: em(10px)
+		margin-bottom: em(10px)
+
+.jPanelMenu-panel //slide menu animation
+	-webkit-transform: translate3d(0, 0, 0)
+	+box-shadow(-3px 0px 10px 1px rgba(#000, 0.5))
+	+transition-property(left)
+	+transition-duration(200ms)
+
+
+#main
+	clear: both
+
+nav#main-nav
+	position: fixed
+	z-index: 100
+	top: 0
+	left: 0
+	right: 0
+	height: em(40px)
+	padding-top: em(4px)
+	width: 100%
+	$bgcolor : mix($link-color, $background-color, 5%)
+	background-color: $bgcolor
+	border-bottom: 1px solid rgba($link-color, 0.2)
+	+box-shadow(0 2px 10px 2px rgba(#000, 0.2))
+
+	> ul
+		$font-size: 24px
+		float: right
+		margin-right: em(10px,$font-size)
+		position: relative
+		font-size: em($font-size)
+		line-height: em(44px,$font-size)
+		li
+			float: left
+			a
+				padding: em(8px, $font-size)
+				color: $link-color
+				+text-shadow(0 1px 1px contrast-color($bgcolor, #fff, #000))
+			.cart-count
+				position: absolute
+				right: 3px
+				top: 1px
+				background-color: #fff
+				border: 1px solid $link-color
+				border-radius: 12px
+				//box-shadow: 0 1px 2px black
+				color: $link-color
+				font-size: 11px
+				line-height: 15px
+				height: 15px 
+				text-align: center
+				width: 15px
+				font-weight: 600
+				+text-shadow(none)
+
+	a#main-nav-btn
+		float: left
+		+sassy-button("simple", 5px, em(18px), $bgcolor) 
+		padding: 0 em(10,18)
+		color: $link-color
+		line-height: em(32,18)
+		margin-left: em(4px)
+		font-weight: 400
+		span
+			font-size: em(26,18)
+			float: left
+			padding-top: em(2,26)
+		&.down
+			+sassy-button-style('inset', rgba(#000, 0.5))
+
+
+.popover
+	position: absolute
+	margin-top: em(55px)
+	right: em(15px)
+	left: em(15px)
+	padding: em(8px) em(10px)
+	color: #fff
+	text-align: center
+	+text-shadow(1px 1px 1px contrast-color($base-color, #fff, #000))
+	+background(linear-gradient(top, $base-color, scale-lightness($base-color, -30%)))
+	+border-radius(5px)
+	+box-shadow(2px 3px 1px 1px rgba(#000, 0.2s))
+
+	.arrow-up 
+		position: absolute
+		$size: 1em
+		top: $size*-1
+		width: 0 
+		height: 0 
+		border-left: $size solid transparent
+		border-right: $size solid transparent
+		border-bottom: $size solid $base-color
+
+section#search-nav 
+	.arrow-up
+		right: em(80px)
+	input[type=search]
+		-webkit-appearance: textfield
+		width: 100%
+		font-size: em(18px)
+		line-height: em(30, 18)
+		+border-radius(5px)
+		border: 1px solid #000
+		+box-shadow(inset 0 1px 1px 1px rgba(#000, 0.2))
+		font-family: 'Open Sans', sans-serif
+		font-weight: 300
+
+section#user-nav
+	padding: em(20px)
+	.arrow-up
+		right: em(39px)
+	ul 
+		display: inline
+		li
+			display: inline
+			a
+				color: $background-color
+				font-size: em(20px)
+				padding: 0 em(10,20)
+
+section#cart-nav 
+	+border-radius(5px 0 5px 5px)
+	.arrow-up
+		right: 0
+	p.empty
+		padding: em(15,18)
+		color: $background-color
+	h3
+		padding-bottom: em(5,18)
+		margin-bottom: em(5,18)
+		border-bottom: 1px solid rgba($link-color, 0.9)
+		+box-shadow(0 1px 0 0 rgba(#fff,0.3))
+		color: $background-color
+	ul
+		max-height: em(200px)
+		overflow: scroll
+		margin-bottom: em(10px)
+		li
+			@extend .clearfix
+			clear: both
+			padding-bottom: em(10,18)
+			margin-bottom: em(10,18)
+			border-bottom: 1px solid rgba($link-color, 0.9)
+			+box-shadow(0 1px 0 0 rgba(#fff,0.3))
+			a
+				float: left
+				margin-right: em(10,18)
+				
+			img
+				max-height: em(80,18)
+			p
+				color: $background-color
+				text-align: left
+				span
+					display: block
+					padding-bottom: em(10,18)
+			.cart-name
+				font-weight: 600
+
+			.cart-quantity
+				color: $background-color
+
+			.cart-value
+				font-weight: 400
+
+	.primary-btn
+		padding: 1em 0
+		width: 100%
+
+//overflow
+.overthrow-enabled .overthrow 
+	overflow: auto
+	-webkit-overflow-scrolling: touch
+
+.overthrow-enabled.main-menu
+	height: 100%
+
+aside.main-menu
+	background: hsl(hue($link-color), 30%, 30%)
+	-webkit-transform: translate3d(0, 0, 0)
+	text-align: left
+	padding: em(44px) 0
+	border-right: 1px solid scale-lightness($link-color, -55%)
+	+box-sizing(border-box)
+	+text-shadow(1px 1px 1px rgba(#fff, 0.5))
+	height: 100%
+
+	h4
+		color: #fff
+		+text-shadow(1px 1px 1px rgba(#000, 0.3))	
+		font-size: em(14px)
+		font-family: 'Open Sans', sans-serif
+		font-weight: 600
+		padding: em(10,14) em(15,14) em(5,14)
+		line-height: em(20,14)
+		+box-sizing(border-box)	
+	ul
+		margin-left: em(10px)
+		margin-bottom: em(10px)
+		+box-shadow(0 3px 8px 0 rgba(#000,0.5))
+		li
+			color: #fff
+			border: 0
+			a
+				display: block
+				+background(linear-gradient(left, #fff, scale-lightness($link-color, 80%)))
+				color: $link-color
+				padding: em(15,14)
+				font-size: em(14px)
+				line-height: em(15,14)
+				font-weight: 400
+				border-bottom: 1px dotted $link-color
+				+box-sizing(border-box)
+				+box-shadow(inset 0 1px 1px 1px #fff, inset 0 -1px 1px 0 rgba($link-color, 0.3))
+
+			&:first-child a
+				+border-top-left-radius(5px)
+			&:last-child a
+				+border-bottom-left-radius(5px)
+				border-bottom: 0
+
+		li.selected a
+			color: #fff
+			background: $link-color
+			border: 0
+			font-weight: 600
+			+text-shadow(1px 1px 1px rgba(#000, 0.4))
+			+box-shadow(inset 0 -1px 1px 0 scale-lightness($link-color, -30%))
+
+footer#main-footer
+	background: hsl(hue(mix($link-color, $background-color, 20%)), 20%, 15%)
+	padding: em(15px) 0 0 0
+	color: #ddd
+	border-top: em(1px) solid #141414
+	h5
+		color: #fff
+		font-weight: 400
+		+text-shadow(1px 1px 1px rgba(#000,0.5))
+		margin-bottom: em(15px)
+	section
+		padding: em(10px) 0
+		margin: 0 em(30px)
+		// border-bottom: 1px solid rgba(#000, 0.9)
+		// +box-shadow(0 1px 0 0 rgba(#fff,0.3))
+
+	section#newsletter
+		input
+			font-size: em(16px)
+			line-height: em(30,16)
+			margin-bottom: em(5px)
+			padding: 0
+			border: 1px solid #000
+			width: 100%
+			height: em(30px)
+			padding: 0 1em
+			+border-radius(5px)
+			+box-sizing(border-box)
+			font-family: "Open Sans", sans-serif
+			font-weight: 300
+		input.submit
+			+sassy-button("simple", 5px, 14px, scale-lightness($link-color, -30%))
+			height: auto
+			padding: 0.4em 1.5em
+			font-weight: 400
+
+	section#social
+		a
+			margin: 0 em(5px)
+
+	section#about
+		margin: 0
+		padding: em(20px) em(30px) em(10px)
+		background: scale-lightness($background-color, -90%)
+		font-size: em(14px)
+		font-weight: 400
+		color: #9d9d9d
+		p
+			font-size: em(12px)
+			margin-bottom: em(10px)
+		#copyright
+			font-weight: 600
+	a
+		color: $link-color
+	hr
+		+background(linear-gradient(left, rgba(#444,0.0), rgba(#fff,0.5), rgba(#444, 0.0)))
+		width: 80%
+		border: 0
+		height: 1px
+		// +box-shadow( 2px 0 0 rgba(#000,0.3))
+
+
+.primary-btn
+	+sassy-button("simple", 5px, 14px, $link-color)
+	font-family: 'Open Sans', sans-serif
+	font-weight: 400
+	padding: 0.5em 1.5em
+	display: block
+
+.secondary-btn
+	+sassy-button("simple", 5px, 14px, #ccc)
+	font-family: 'Open Sans', sans-serif
+	font-weight: 400
+	padding: 0.5em 1.5em
+	display: block
+
+.alert-btn
+	+sassy-button("simple", 5px, 14px, #c00)
+	font-family: 'Open Sans', sans-serif
+	font-weight: 400
+	padding: 0.5em 1.5em
+	display: block
+
+.hidden
+	display: none
+.winnie-pooh
+	display: none
+.box
+	+border-radius(5px)
+	background: scale-lightness($base-color, 95%)
+	padding: em(10px)
+	+box-shadow(inset 0 0 15px 3px rgba($link-color, 0.8))
+	border: 1px solid scale-lightness($link-color, -70%)
+
+
+/* HOME */
+
+#home-banner
+	margin-bottom: em(20px)
+
+
+#primary
+	background: scale-lightness($background-color, -20%)
+	padding: em(10px) 0 
+	h2
+		margin-bottom: em(10px)
+
+.m-item
+	position: relative
+	text-align: center
+	margin: 0 em(30px)
+	img
+		display: inline-block
+		text-align: center
+	span.name
+		background: rgba(scale-lightness($base-color, -70%), 0.6)
+		color: #fff
+		+text-shadow(1px 1px 1px rgba(#000, 0.7))
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		font-weight: 400
+		font-size: em(12px)
+		padding: 1em
+	span.price
+		position: absolute
+		top: 0px
+		right: 0.5em
+		+background(linear-gradient(top, rgba($link-color,0.5), rgba($link-color,0.95)))
+		color: #fff
+		font-size: em(14px)
+		font-weight: 600
+		padding: 0.8em 0.8em
+		+border-radius(0 0 5px 5px)
+		+text-shadow(1px 1px 1px rgba(#000, 0.3))
+		+box-shadow(0 1px 5px 0 rgba(#000, 0.3))
+		del
+			font-weight: 400
+			font-size: 80%
+.m-carousel-bulleted a.m-active
+	background: rgba($link-color, 0.5)
+#secondary
+	+clearfix
+	padding: em(10px) 0
+
+.product
+	padding: em(10px) em(20px)
+	+clearfix
+	.img
+		float: left
+		max-width: 50%
+	p
+		float: left
+		max-width: 45%
+		text-align: left
+		margin-left: 5%
+	span, del
+		margin-bottom: em(5px)
+	.name
+		font-weight: 400
+		display: block
+		color: $base-color
+	.compare-price
+		font-weight: 300
+		display: block
+		color: $base-color
+	.price
+		font-weight: 600
+		display: block
+		color: $link-color
+
+
+/* CATEGORY */
+
+.breadcrumb
+	padding: em(20,13) 0
+	margin: 0 em(20,13)
+	text-align: left
+	font-size: em(13px)
+	border-bottom: 1px dotted scale-lightness($link-color, 50%)
+	border-top: 1px dotted scale-lightness($link-color, 50%)
+	ul li
+		display: inline
+		&:after
+			content: "/"
+			padding: 0 0.5em
+			color: rgba(#666, 0.5)
+			font-weight: 400
+		&:last-child:after
+			content: ""
+
+	a
+		color: $link-color
+		font-weight: 600
+		text-decoration: underline
+#subcategories
+	padding: em(15px) em(20px)
+	label
+		display: block
+		font-size: em(14px)
+		font-weight: 600
+		text-align: left
+	select
+		width: 100%
+		font-size: em(16px)
+		line-height: 1.2em
+		font-family: 'Open Sans', sans-serif
+		font-weight: 300
+		+box-sizing(border-box)
+		margin-bottom: em(15px)
+
+
+.search-results
+	clear: both
+	border-color: scale-lightness($background-color, -30%)
+	border-style: solid
+	border-width: 1px 0
+	padding: em(10px) 0
+	background-color: scale-lightness($background-color, -20%)
+	color: mix($link-color, $base-color)
+	font-weight: 400
+	font-size: em(14px)
+	margin: em(10px) 0 em(20px)
+	+box-shadow(0 2px 3px 1px rgba(scale-lightness($background-color, -20%), 0.3))
+
+.pagination
+	clear: both
+	background: scale-lightness($background-color, -20%)
+	padding: em(10px) em(20px)
+	a
+		display: inline-block
+		color: $link-color
+		font-weight: 400
+		font-size: em(12px)
+		line-height: em(30px, 12px)
+		padding: 0 em(8px)
+	strong
+		padding: 0 em(8px)
+		font-weight: 600
+		font-size: em(12px)
+		line-height: em(30px, 12px)
+
+/* PRODUCT */
+
+section#product
+	h1
+		font-size: em(40,22)
+		margin-bottom: em(10px)
+		padding-top: em(15,30)
+
+	.m-carousel
+		background: scale-lightness($background-color, -20%)
+		padding: em(20px)
+		margin-bottom: em(15px)
+	#price
+		width: 50%
+		margin: 0 auto 
+		padding: em(10px)
+		background: rgba($link-color, 0.2)
+		+border-radius(5px)
+
+		.price
+			font-size: em(30px)
+			font-weight: 600
+			color: $link-color
+		.installments
+			font-size: em(13px)
+	#variations
+		padding: em(15px) em(20px) 0
+		text-align: left
+		label
+			display: block
+			font-size: em(14px)
+			font-weight: 600
+		input, select
+			width: 100%
+			font-size: em(16px)
+			line-height: 1.2em
+			font-family: 'Open Sans', sans-serif
+			font-weight: 300
+			+box-sizing(border-box)
+			margin-bottom: em(15px)
+		.primary-btn
+			padding: 1em 1.5em
+	#product-description
+		font-family: "Open Sans", sans-serif !important
+		text-align: left
+		padding: em(15px) em(20px)
+	#product-share
+		padding: em(15px) em(20px)
+		div
+			display: inline
+			padding-right: em(10px)
+
+/* CONTACT */
+
+section#contact 
+	padding: 0 em(20px) em(15px)
+	font-size: 1em
+	h2
+		text-align: center
+		margin-bottom: em(20,22)
+	#info
+		margin: 0 0 em(20px)
+		padding: em(15px)
+		p
+			margin-bottom: 1em
+		em
+			font-weight: 400
+		address
+			text-align: left
+			background: scale-lightness($background-color, -15%)
+			padding: em(10px)
+			+border-radius(5px)
+	#contact-form
+		text-align: left
+		input, select, textarea
+			font-size: em(16px)
+			line-height: em(30,16)
+			margin-bottom: em(15px)
+			padding: 0
+			width: 100%
+			padding: 0 1em
+			+border-radius(5px)
+			+box-sizing(border-box)
+			font-family: "Open Sans", sans-serif
+			font-weight: 300
+		label
+			display: block
+			font-size: em(14px)
+			font-weight: 600
+			margin-bottom: 2px
+		.primary-btn
+			padding: 0.5em
+/* PAGE */
+section#page
+	h1
+		padding: em(15,22)
+	#page-content
+		text-align: left
+		padding: 0 em(20px) em(15px)
+		line-height: 1.3em
+/* CART */
+.template-cart .title
+	margin: em(20px)
+
+section#my-cart
+	padding: em(15px)
+	h1
+		margin-bottom: em(15,22)
+	.primary-btn, .alert-btn
+		width: 100%
+		+box-sizing(border-box)
+
+section#cart-products
+	article
+		position: relative
+		margin-bottom: em(15px)
+		text-align: left
+		padding: em(10px) em(40px) em(10px) em(10px)
+		background: scale-lightness($background-color, -15%)
+		+border-radius(5px)
+		+clearfix
+		.remove
+			position: absolute
+			top: 0.2em
+			right: 0.2em
+			font-size: em(30px)
+
+		div.info
+			float: left
+			max-width: 65%
+			margin-left: 5%
+		p
+			font-size: em(13px)
+			padding: em(5px) 0
+		p.name
+			font-weight: 600
+		p.quantity
+			.change-quantity-btn
+				font-weight: 500
+		p.price
+			color: $link-color
+			font-weight: 600
+		div.change-quantity
+			background: $link-color
+			padding: em(10px)
+			text-align: center
+			+clearfix
+			+border-radius(5px)
+			input
+				float: left
+				width: 67%
+				font-size: em(16px)
+				line-height: 1.2em
+				font-family: 'Open Sans', sans-serif
+				font-weight: 300
+				+box-sizing(border-box)
+				margin-bottom: em(5px)
+				-webkit-transform: translate3d(0, 0, 0)
+				-webkit-user-modify: read-write-plaintext-only
+			p
+				font-size: em(13px)
+				margin-bottom: em(5px)
+				font-weight: 600
+				color: #fff
+			// .btn-qtd
+			// 	+sassy-button("simple", 5px, em(15px), $base-color) 
+			// 	color: #fff
+			// 	padding: 0.5em
+			// 	float: left
+			// 	margin-bottom: em(5px)
+			.close-btn
+				float: left
+				width: 28%
+				margin-left: 5%
+				padding: 0.5em
+				+box-sizing(border-box)
+		img
+			float: left
+			max-width: 30%
+
+	.total
+		background: mix($background-color, $link-color, 80%)
+		color: $base-color
+		font-size: em(18px)
+		line-height: em(40,18)
+		margin-bottom: em(15px)
+		font-weight: 600
+		+border-radius(5px)
+
+p.error
+	background: #c00
+	color: #fff
+	font-size: em(14px)
+	text-shadow: 1px 1px 1px rgba(#000, 0.5)
+	padding: em(15,14)
+	+border-radius(5px)
+	margin: em(15px)
+
+#error
+	margin: em(20px)
+
+#shipping-calculator
+	background: scale-lightness($background-color, -15%)
+	padding: em(10px)
+	margin-bottom: em(10px)
+	+border-radius(5px)
+	p
+		margin-bottom: em(10px)
+		font-size: em(14px)
+	input
+		font-size: em(13px)
+		line-height: em(25,13)
+		padding: 0 0.3em
+		border: 1px solid #000
+	#calculate-shipping-btn
+		+sassy-button("simple", 5px, em(13px), $link-color)
+	ul
+		li
+			margin-bottom: em(10px)
+			overflow: hidden
+			text-align: center
+			input
+				position: absolute
+				top: -999px
+				left: -999px
+			label
+				display: block
+				padding: em(10px)
+				text-align: center
+				+border-radius(5px)
+				span
+					display: block
+					font-size: em(14px)
+				img
+					margin-bottom: em(10px)
+			input:checked ~ label
+				background: $link-color
+				span
+					color: $background-color
+					font-weight: 600
+
+
+

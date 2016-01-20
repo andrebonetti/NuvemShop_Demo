@@ -1,0 +1,6 @@
+primary
+	name = Home Principal
+	description = Coloque aqui os produtos de maior destaque na home
+secondary
+	name = Home Secundário
+	description = Coloque aqui os produtos de destaque secundário na home

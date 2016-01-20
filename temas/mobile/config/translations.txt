@@ -1,0 +1,470 @@
+pt "A página solicitada não existe"
+es "La página solicitada no existe"
+en "The page does not exist"
+
+pt "Por favor verifique se você digitou corretamente o endereço."
+es "Por favor verifique que ha ingresado la dirección correctamente"
+en "Please make sure that you entered the correct address"
+
+pt "Ver Detalhes"
+es "Ver Detalles"
+en "View Details"
+
+pt "Categorias"
+es "Categorías"
+en "Categories"
+
+pt "Desculpe, mas não há estoque suficiente para incluir este produto ao carrinho."
+es "No hay suficiente stock para agregar este producto al carrito."
+en "There's not enough stock left to add this product to the shopping cart."
+
+pt "Continuar comprando"
+es "Seguir comprando"
+en "Continue shopping"
+
+pt "Incluindo..."
+es "Agregando..."
+en "Adding..."
+
+pt "Não podemos te oferecer {1} unidades do produto {2}. No momento, somente possuímos {3} unidades"
+es "No podemos ofrecerte {1} unidades de {2}. Solamente tenemos {3} unidades."
+en "We cannot offer you {1} units of {2}. We only have {3} left in stock."
+
+pt "Anterior"
+es "Anterior"
+en "Previous"
+
+pt "Seguinte"
+es "Siguiente"
+en "Next"
+
+pt "1 produto"
+es "1 producto"
+en "1 product"
+
+pt "{1} produtos"
+es "{1} productos"
+en "{1} products"
+
+pt "Em até {1}x de {2} sem juros"
+es "En hasta {1} cuotas de {2} sin interés"
+en "In up to {1} installments of {2} without interest"
+
+pt "Em até {1}x no cartão"
+es "En hasta {1} cuotas en tarjeta de crédito"
+en "In up to {1} installments"
+
+pt "Copyright {1} {2}. Todos os direitos reservados."
+es "Copyright {1} {2}. Todos los derechos reservados."
+en "Copyright {1} {2}. All rights reserved."
+
+pt "País"
+es "País"
+en "Country"
+
+pt "Buscar"
+es "Buscar"
+en "Search"
+
+pt "Início"
+es "Inicio"
+en "Home"
+
+pt "Produtos"
+es "Productos"
+en "Products"
+
+pt "Contato"
+es "Contacto"
+en "Contact"
+
+pt "Finalizar Compra"
+es "Iniciar compra"
+en "Checkout"
+
+pt "Ver o Carrinho"
+es "Ver el carrito"
+en "Shopping Cart"
+
+pt "Usuário"
+es "Mi Cuenta"
+en "Account"
+
+pt "Carrinho"
+es "Carrito"
+en "Cart"
+
+pt "Blog"
+es "Blog"
+en "Blog"
+
+pt "Carrinho de Compras"
+es "Carrito de Compras"
+en "Shopping Cart"
+
+pt "Preço"
+es "Precio"
+en "Price"
+
+pt "Subtotal"
+es "Subtotal"
+en "Subtotal"
+
+pt "Quantidade"
+es "Cantidad"
+en "Quantity"
+
+pt "Preço"
+es "Precio"
+en "Price"
+
+pt "Estoque"
+es "Stock"
+en "Stock"
+
+pt "Remover"
+es "Eliminar"
+en "Remove"
+
+pt "Total"
+es "Total"
+en "Total"
+
+pt "Alterar Quantidades"
+es "Cambiar Cantidades"
+en "Update quantities"
+
+pt "O carrinho de compras está vazio."
+es "El carrito de compras está vacío."
+en "The shopping cart is empty."
+
+pt "Curta nossa página no Facebook"
+es "Síguenos en Facebook"
+en "Follow us on Facebook"
+
+pt "Siga-nos no Twitter"
+es "Síguenos en Twitter"
+en "Follow us on Twitter"
+
+pt "Adicione aos seus círculos"
+es "Agrega a tus círculos"
+en "Add to circles"
+
+pt "Siga-nos no Pinterest"
+es "Síguenos en Pinterest"
+en "Follow us on Pinterest"
+
+pt "Siga-nos no Instagram"
+es "Síguenos en Instagram"
+en "Follow us on Instagram"
+
+pt "Siga-nos"
+es "Seguínos en"
+en "Follow us"
+
+pt "A mensagem foi enviada com sucesso, muito obrigado."
+es "El mensaje ha sido enviado con éxito, muchas gracias."
+en "The message has been sent, thank you."
+
+pt "Verifique os dados digitados para que possamos entrar em contato."
+es "Debes completar los datos de contacto."
+en "You must fill in your contact details."
+
+pt "Nome"
+es "Nombre"
+en "Name"
+
+pt "E-mail"
+es "E-mail"
+en "E-mail"
+
+pt "E-mail:"
+es "e-mail:"
+en "e-mail:"
+
+pt "Telefone"
+es "Teléfono"
+en "Phone"
+
+pt "telefone:"
+es "teléfono:"
+en "phone:"
+
+pt "endereço:"
+es "dirección:"
+en "address:"
+
+es "No completar este campo"
+pt "Não preencher este campo"
+en "Do not fill this field"
+
+pt "Consulta"
+es "Consulta"
+en "Question"
+
+pt "Enviar"
+es "Enviar"
+en "Send"
+
+pt "Resultados da pesquisa"
+es "Resultados de búsqueda"
+en "Search results"
+
+pt "Não há resultados para a sua pesquisa."
+es "No hubo resultados para su búsqueda."
+en "There were no results for your search."
+
+pt "Comprar"
+es "Agregar al carrito"
+en "Add to cart"
+
+pt "Esgotado"
+es "Sin stock"
+en "Out of stock"
+
+pt "Carrinho vazio"
+es "Carrito vacío"
+en "Empty cart"
+
+pt "Digite aqui o seu CEP para calcular o frete"
+es "Ingrese aquí su código postal para calcular su costo de envío"
+en "Enter your zipcode to calculate your shipping cost"
+
+pt "Calcular Frete"
+es "Calcular costo de envío"
+en "Calculate shipping"
+
+pt "O CEP está inválido."
+es "El código postal es inválido."
+en "The zipcode is not valid."
+
+pt "Veja os valores para o seu CEP abaixo"
+es "Vea las opciones de envío para su código postal abajo"
+en "Your shipping options are the following"
+
+pt "Não há frete disponível para o CEP informado."
+es "No hay costos de envío para el código postal dado."
+en "Shipping is not available for your zipcode."
+
+pt "Desculpe, mas a página que você está procurando não existe."
+es "La página que estás buscando no existe."
+en "The page you're looking for doesn't exist."
+
+pt "Talvez você se interesse pelos seguintes produtos:"
+es "Tal vez te interesen estos productos."
+en "Maybe you'll be interested in the following products."
+
+pt "Produtos em Destaque"
+es "Productos Destacados"
+en "Highlighted Products"
+
+pt "Preço sob Consulta"
+es "Consultar precio"
+en "Contact for price"
+
+pt "Termos e condições"
+es "Términos y condiciones"
+en "Terms and conditions"
+
+pt "Mapa do site"
+es "Navegación"
+en "Links"
+
+pt "Social"
+es "Social"
+en "Social"
+
+pt "Formas de pagamento"
+es "Métodos de pago"
+en "Mode of payment"
+
+pt "Segurança e Certificações"
+es "Seguridad y certificaciones"
+en "Security and Certifications"
+
+pt "Formas de envio"
+es "Formas de envío"
+en "Shipping methods"
+
+pt "Ofertas exclusivas no seu e-mail"
+es "Ofertas exclusivas en su email"
+en "Special Offers via Email"
+
+pt "Cadastre-se"
+es "Registrese"
+en "Subscribe"
+
+pt "Seu nome"
+es "Su nombre"
+en "Your name"
+
+pt "Seu e-mail"
+es "Su email"
+en "Your email"
+
+pt "Passe o mouse e veja mais detalhes"
+es "Mueve el mouse sobre la foto para hacer zoom"
+en "Move your mouse over the image to zoom"
+
+pt "Carregando..."
+es "Cargando..."
+en "Loading..."
+
+pt "Procurar por:"
+es "Consulta por:"
+en "Browse by:"
+
+pt "Produto seleccionado"
+es "Producto seleccionado"
+en "Selected product"
+
+pt "Obrigado por cadastrar seu e-mail para receber nossas novidades"
+es "Gracias por registrar su email para recibir nuestras noticias"
+en "Thank you for registering your email to receive our news"
+
+pt "Pedido de inscrição na newsletter"
+es "Pedido de inscripción a newsletter"
+en "Newsletter subscription request"
+
+pt "Digite o seu e-mail"
+es "Ingrese su email"
+en "Enter your e-mail"
+
+pt "Talvez você esteja interessado..."
+es "Quizás te interese..."
+en "Maybe you are interested in..."
+
+pt "Login"
+es "Iniciar sesión"
+en "Log in"
+
+pt "Cadastre-se "
+es "Crear cuenta"
+en "Register"
+
+pt "Sair"
+es "Cerrar sesión"
+en "Log out"
+
+pt "Minha conta"
+es "Mi cuenta"
+en "My account"
+
+pt "Sim"
+es "Si"
+en "Yes"
+
+pt "Não"
+es "No"
+en "No"
+
+pt "Sob Consulta"
+es "Consultar"
+en "Contact"
+
+pt "Junte-se a nós"
+es "Síguenos"
+en "Follow us"
+
+pt "Navegação principal"
+es "Navegación"
+en "Navigation"
+
+pt "Navegação"
+es "Navegación"
+en "Navigation"
+
+pt "Buscar produtos"
+es "Buscar productos"
+en "Search products
+
+pt "Nenhum item no carrinho"
+es "Ningún item en el carrito"
+en "Empty cart"
+
+pt "1 item no carrinho"
+es "1 item en el carrito"
+en "1 item on your cart"
+
+pt "{1} itens no carrinho"
+es "{1} items en el carrito"
+en "{1} items on your cart"
+
+pt "Quantidade: {1}"
+es "Cantidad: {1}"
+en "Quantity: {1}"
+
+pt "Total: {1}"
+es "Total: {1}"
+en "Total: {1}"
+
+pt "alterar"
+es "cambiar"
+en "change"
+
+pt "Alterar quantidade para:"
+es "Cambiar cantidad a:"
+en "Change quantity to:"
+
+pt "Atualizar carrinho"
+es "Actualizar carrito"
+en "Update cart"
+
+pt "Alterar ou finalizar minha compra"
+es "Alterar o finalizar mi compra"
+en "Modify or finish my purchase"
+
+pt "Sub-categorias:"
+es "Subcategorias:"
+en "Subcategories:"
+
+pt "Selecione..."
+es "Seleccione..."
+en "Choose..."
+
+pt "Nenhum produto encontrado"
+es "Ningún producto encontrado"
+en "No products found"
+
+pt "1 produto encontrado"
+es "1 producto encontrado"
+en "1 product found"
+
+pt "{1} produtos encontrados"
+es "{1} productos encontrados"
+en "{1} products found"
+
+pt "Quantidade:"
+es "Cantidad:"
+en "Quantity:"
+
+pt "Descrição do produto:"
+es "Descripción del producto:"
+en "Product description:"
+
+pt "Adicionar ao carrinho"
+es "Agregar al carrito"
+en "Add to cart"
+
+pt "Informações de contato"
+es "Información de contacto"
+en "Contact information"
+
+pt "Formulário para contato"
+es "Formulario de contacto"
+en "Contact form"
+
+--- Sections ---
+pt "Home Principal"
+es "Home Principal"
+
+pt "Os produtos de maior destaque na home"
+es "Los productos destacados en la página principal"
+
+pt "Home Secundário"
+es "Home Secundario"
+
+pt "Os produtos de destaque secundário na home"
+es "Los productos secundarios en la página principal"
+
+--- Settings ---

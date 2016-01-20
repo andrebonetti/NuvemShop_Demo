@@ -1,0 +1,3 @@
+Host: ftp.nuvemshop.com.br
+Usuário: andrebonettiteste
+Senha: 6ym651ov

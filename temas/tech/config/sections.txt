@@ -1,0 +1,7 @@
+primary
+	name = Principal
+	description = Pon aquí los productos que más quieras destacar
+	
+noresult
+	name = buscador
+	description = Pon aquí los productos que más quieras destacar

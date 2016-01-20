@@ -1,0 +1,18 @@
+Configurações da home
+	i18n_input
+		name = primary_name
+		description = Nome da categoria principal
+	i18n_input
+		name = secondary_name
+		description = Nome da categoria secundária
+	checkbox
+		name = newsletter
+		description = Mostrar formulário para newsletter?
+Banner da Home
+	image
+		original = images/home-banner.png
+		description = Banner da home
+	i18n_input
+		name = home_banner_link
+		description = Link do banner da home
+

@@ -1,0 +1,444 @@
+Colores
+	color
+		name = brand_color
+		description = Color principal de tu marca
+	color
+		name = brand_color_secondary
+		description = Color secundario de tu marca
+	color
+		name = background_color
+		description = Color de fondo
+	color
+		name = background_color_secondary
+		description = Color de fondo secundario
+	color
+		name = text_color
+		description = Color de los textos
+Tipo de letra
+	font
+		name = font_logo
+		description = Logo
+		values
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Lato",sans-serif = Lato
+			"Arvo",serif = Arvo
+			"Istok Web",sans-serif = Istok Web
+			"Paytone One", sans-serif = Paytone One
+			"Raleway", sans-serif = Raleway
+			"Lato", Sans-serif = Lato
+			"Ubuntu", Sans-serif = Ubuntu
+			"Roboto", serif = Roboto
+	font
+		name = font_headings
+		description = Títulos
+		values
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Lato",sans-serif = Lato
+			"Arvo",serif = Arvo
+			"Istok Web",sans-serif = Istok Web
+			"Paytone One", sans-serif = Paytone One
+			"Raleway", sans-serif = Raleway
+			"Lato", Sans-serif = Lato
+			"Ubuntu", Sans-serif = Ubuntu
+			"Roboto", serif = Roboto
+	font
+		name = font_headingsprods
+		description = Títulos de productos
+		values
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Lato",sans-serif = Lato
+			"Arvo",serif = Arvo
+			"Istok Web",sans-serif = Istok Web
+			"Paytone One", sans-serif = Paytone One
+			"Raleway", sans-serif = Raleway
+			"Lato", Sans-serif = Lato
+			"Ubuntu", Sans-serif = Ubuntu
+			"Roboto", serif = Roboto
+	font
+		name = font_navigation
+		description = Navegación, texto que dispara la ventana emergente, oferta, ícono del carrito
+		values
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Lato",sans-serif = Lato
+			"Arvo",serif = Arvo
+			"Istok Web",sans-serif = Istok Web
+			"Paytone One", sans-serif = Paytone One
+			"Raleway", sans-serif = Raleway
+			"Lato", Sans-serif = Lato
+			"Ubuntu", Sans-serif = Ubuntu
+			"Roboto", serif = Roboto
+	font
+		name = font_buttons
+		description = Botones
+		values
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Lato",sans-serif = Lato
+			"Arvo",serif = Arvo
+			"Istok Web",sans-serif = Istok Web
+			"Paytone One", sans-serif = Paytone One
+			"Raleway", sans-serif = Raleway
+			"Lato", Sans-serif = Lato
+			"Ubuntu", Sans-serif = Ubuntu
+			"Roboto", serif = Roboto
+	font
+		name = font_rest
+		description = Resto del sitio
+		values
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Lato",sans-serif = Lato
+			"Arvo",serif = Arvo
+			"Istok Web",sans-serif = Istok Web
+			"Paytone One", sans-serif = Paytone One
+			"Raleway", sans-serif = Raleway
+			"Lato", Sans-serif = Lato
+			"Ubuntu", Sans-serif = Ubuntu
+			"Roboto", serif = Roboto
+
+Galería de imágenes
+	title
+		title= Slider principal de tu sitio
+	gallery
+		name = slider
+		description = Selecciona las imágenes que van a ir pasando en la página de inicio
+		gallery_image = Selecciona una imagen
+		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
+		gallery_width = 1920
+	checkbox
+		name = slider_auto
+		description = Pasar las imágenes de forma automática
+
+Menúes
+	title
+		title = Menú principal 
+	subtitle
+		subtitle= Mostrar el menú reducido (header)
+	checkbox
+		name = slim_menu
+		description = Tus clientes verán un menú fijo cuando se desplacen hacia abajo en el sitio
+	
+	subtitle
+		subtitle = Logo para mostrar en el menú reducido
+	image
+		original = slim-logo.jpg
+		description = Te aconsejamos usar imágenes de 50 x 50 px 
+	
+	subtitle
+		subtitle = Elegí el menú para el final de la página (footer)
+	menu
+		name = footer_menu
+		description = ¿Qué menú vas a mostrar al final de la página?
+	checkbox
+		name = product_filters
+		description = Mostrar barra lateral con filtros en listado de productos
+
+Redes sociales
+	title
+		title = Facebook
+
+	subtitle
+		subtitle = Recuadro de 'Me gusta' de tu Página de Facebook
+	checkbox
+		name = show_footer_fb_like_box
+		description = Mostrar el recuadro de 'Me gusta' de tu Página de Facebook en la página de inicio (tienes que configurar la página de Facebook en 'Información de contacto')
+
+	subtitle
+		subtitle = Comentarios en el producto
+	checkbox
+		name = show_product_fb_comment_box
+		description = Permitir que tus clientes te dejen comentarios con su usuario de Facebook en la página de producto
+	
+	subtitle
+		subtitle = Moderar comentarios de Facebook
+	text
+		name = fb_admins
+		description = Para moderar los comentarios de Facebook necesitamos tu ID de Facebook (puedes obtenerlo <a target='_blank' href='http://findmyfacebookid.com/'>aquí</a>)
+
+
+Newsletter
+	i18n_input
+		name = news_txt
+		description = ¡Escribí algo para que tus clientes se suscriban a tu newsletter!
+
+
+Banners con imágenes
+	title
+		title = Para las páginas de categorías
+	image
+		original = banner-products.jpg
+		description = Te recomendamos usar imágenes de 1170 x 195 px
+	i18n_input
+		name = banner_products_url
+		description = [Opcional] Página web a la que llevará el banner al hacer click.
+
+	title
+		title = Para las páginas institucionales
+	image
+		original = foto-nosotros.jpg
+		description = Te recomendamos usar imágenes de 586 x 300 px
+	i18n_input
+		name = foto_nosotros_url
+		description = [Opcional] Página web a la que llevará el banner al hacer click.
+
+	title
+		title = Para las páginas de contacto
+	image
+		original = foto-contacto.jpg
+		description = Te recomendamos usar imágenes de 1170 x 195 px
+	i18n_input
+		name = foto_contacto_url
+		description = [Opcional] Página web a la que llevará el banner al hacer click.
+		
+Banners editables
+
+	title
+		title = Ediciones generales de los banners
+	checkbox
+		name = category_banner_top
+		description = Mostrar los banners en la parte superior de la página de productos
+	checkbox
+		name = category_banner_bottom
+		description = Mostrar los banners en la parte inferior de la página de productos
+	dropdown
+		name = banner_place
+		description = ¿En qué parte de la página de inicio querés mostrar tus banners?
+		values
+			top_a =	Debajo del pasador de fotos y sobre productos destacados (arriba)
+			middle = Debajo de los productos destacados (en el medio)
+			bottom = Antes del final de la página (abajo)
+			none = No los quiero mostrar en la página de inicio
+
+	title
+		title = Banner izquierdo
+	i18n_input
+		name = banner_home_01_title
+		description = Título para el banner izquierdo
+	image
+		original = banner_home_01_image.jpg
+		description = Imagen de fondo para el banner izquierdo
+	i18n_input
+		name = banner_home_01_description
+		description = [Opcional] Texto para el banner izquierdo
+	i18n_input
+		name = banner_home_01_button_text
+		description = [Opcional] Texto para el botón del banner izquierdo
+	i18n_input
+		name = banner_home_01_url
+		description = [Opcional] Página web a la que llevará el banner al hacer clic en el botón.
+	checkbox
+		name = banner_home_01_blank
+		description = Hacer que el link del banner izquierdo abra en una pestaña nueva
+	dropdown
+		name = banner_home_01_color
+		description = ¿Cuál es el color de fondo del banner izquierdo?
+		values
+			brand = Color principal de tu marca
+			secondary = Color secundario de tu marca
+			none = Sin color de fondo
+	dropdown
+		name = banner_home_01_font_color
+		description = ¿Cuál es el color del tipo de letra del banner izquierdo?
+		values
+			default_font = Color de fondo
+			brand_font = Color principal de tu marca
+			txt_font = Color de los textos
+	
+	title
+		title = Banner central
+	i18n_input
+		name = banner_home_02_title
+		description = Título para el banner central
+	image
+		original = banner_home_02_image.jpg
+		description = Imagen de fondo para el banner central
+	i18n_input
+		name = banner_home_02_description
+		description = [Opcional] Texto para el banner central
+	i18n_input
+		name = banner_home_02_button_text
+		description = [Opcional] Texto para el botón del banner central
+	i18n_input
+		name = banner_home_02_url
+		description = [Opcional] Página web a la que llevará el banner al hacer clic en el botón
+	checkbox
+		name = banner_home_02_blank
+		description = Hacer que el link del banner central abra en una pestaña nueva
+	dropdown
+		name = banner_home_02_color
+		description = ¿Cuál es el color de fondo del banner central?
+		values
+			brand = Color principal de tu marca
+			secondary = Color secundario de tu marca
+			none = Sin color de fondo
+	dropdown
+		name = banner_home_02_font_color
+		description = ¿Cuál es el color del tipo de letra del banner central?
+		values
+			default_font = Color de fondo
+			brand_font = Color principal de tu marca
+			txt_font = Color de los textos
+	
+
+	title
+		title = Banner derecho
+	i18n_input
+		name = banner_home_03_title
+		description = Título para el banner derecho
+	image
+		original = banner_home_03_image.jpg
+		description = Imagen de fondo para el banner derecho
+	i18n_input
+		name = banner_home_03_description
+		description = [Opcional] Texto para el banner derecho
+	i18n_input
+		name = banner_home_03_button_text
+		description = [Opcional] Texto para el botón del banner derecho
+	i18n_input
+		name = banner_home_03_url
+		description = [Opcional] Página web a la que llevará el banner al hacer clic en el botón.
+	checkbox
+		name = banner_home_03_blank
+		description = Hacer que el link del banner derecho abra en una pestaña nueva
+	dropdown
+		name = banner_home_03_color
+		description = ¿Cuál es el color de fondo del banner derecho?
+		values
+			brand = Color principal de tu marca
+			secondary = Color secundario de tu marca
+			none = Sin color de fondo
+	dropdown
+		name = banner_home_03_font_color
+		description = ¿Cuál es el color del tipo de letra del banner derecho?
+		values
+			default_font = Color de fondo
+			brand_font = Color principal de tu marca
+			txt_font = Color de los textos
+
+
+Banners de servicios
+	title
+		title = Ubicación de los banners
+	checkbox
+		name = banner_services
+		description = Mostrar el banner de servicios en toda la tienda (se verá arriba del footer)
+	checkbox
+		name = banner_services_home
+		description = Mostrar el banner de servicios solo en la página principal (se verá debajo del slider).
+	checkbox
+		name = banner_services_category
+		description = Mostrar el banner de servicios en la lista de productos (se verá arriba de los productos)
+	
+	title
+		title = Textos editables de los banners
+	subtitle
+		subtitle = Banner para envíos
+	i18n_input
+		name = banner_services_01_title
+		description = Título del banner
+	i18n_input
+		name = banner_services_01_description
+		description = Descripción del banner 
+	subtitle
+		subtitle = Banner para tarjetas de crédito
+	i18n_input
+		name = banner_services_02_title
+		description = Título del banner
+	i18n_input
+		name = banner_services_02_description
+		description = Descripción del banner
+	subtitle
+		subtitle = Banner para seguridad
+	i18n_input
+		name = banner_services_03_title
+		description = Título del banner
+	i18n_input
+		name = banner_services_03_description
+		description = Descripción del banner
+
+Opciones generales
+
+	subtitle
+		subtitle = Ediciones para el texto de bienvenida
+	i18n_input
+		name = welcome_message
+		description = Mensaje de bienvenida para la página de inicio
+	i18n_input
+		name = welcome_message_link
+		description = [Opcional] Texto para el botón de bienvenida de la página de inicio
+	i18n_input
+		name = welcome_message_link_url
+		description = [Opcional] Página web a la que llevará el botón de bienvenida al hacer click.
+	
+	subtitle
+		subtitle = Botón para seguir cargando productos
+	checkbox
+		name = infinite_scrolling
+		description = ¿Permitir que en el listado de productos tus clientes carguen nuevos productos cuando llegan al final de la página?
+	
+	subtitle
+		subtitle = Pop-up de compra rápida
+	checkbox
+		name = quick_shop
+		description = Permitir que tus clientes puedan agregar productos a su carrito rápidamente desde una ventana emergente en el listado de productos
+	
+	i18n_input
+		name = quick_shop_label
+		description = Texto que se verá al colocar el mouse sobre un producto, antes de abrir la ventana emergente
+	
+	subtitle
+		subtitle = Ediciones para la página de contacto
+	i18n_input
+		name = descr_contacto
+		description = Pequeña introducción para la página de contacto
+	checkbox
+		name = map_contacto
+		description = Habilitar un mapa de Google Maps con tu dirección en la página de contacto (se debe configurar la dirección en 'Información de contacto')
+	
+	subtitle
+		subtitle = Monto mínimo de compra
+	text
+		name = cart_minimum_value
+		description = ¿Cuánto es lo mínimo que pueden gastar tus clientes?
+		
+	subtitle
+		subtitle = Botón seguir comprando en el carrito de compras
+	checkbox
+		name = continue_buying
+		description = Mostrar el botón de 'Seguir comprando' en el carrito de compras
+Edición avanzada de CSS
+	title
+		title = Para diseñadores web
+	subtitle
+		subtitle = Esta sección es recomendada solo para quienes tengan conocimiento de CSS
+	textarea
+		name = css_code
+		description = Acá podés escribir código CSS para que se muestre en tu sitio web.

@@ -1,0 +1,223 @@
+Colores
+	color
+		name = main_brand_color
+		description = Color principal de tu marca (aplica por ejemplo en las líneas debajo de los títulos,  fondo de la navegación y para iconos de redes sociales)
+	color
+		name = footer_background_color
+		description = Color de fondo para el footer
+	color
+		name = navigation_foreground_color
+		description = Color de texto en la navegación principal y el footer
+	color
+		name = body_background
+		description = Color de fondo en el cuerpo del sitio		
+	color
+		name = main_foreground_color
+		description = Color de los textos en el cuerpo del sitio
+	color
+		name = main_CTA_background_color
+		description = Color de fondo para los botones principales
+Tipo de letra
+	font
+		name = myfont
+		description = Fuente Principal
+		values
+			"Lato", sans-serif = Lato
+			'Oswald', sans-serif = Oswald
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Open Sans",sans-serif = Open Sans			
+	font	
+		name = myfont2
+		description = Fuente para Títulos / Ofertas / Stock
+		values
+			"Lato", sans-serif = Lato
+			'Oswald', sans-serif = Oswald
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			"Open Sans",sans-serif = Open Sans
+
+Galería de imágenes
+	gallery
+		name = slider
+		description = Selecciona las imágenes que van a ir pasando en la página de inicio
+		gallery_image = Selecciona una imagen
+		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
+		gallery_width = 1280
+	checkbox
+		name = slider_auto
+		description = Pasar las imágenes de forma automática
+	
+
+Menúes
+	title
+		title = Menú principal 
+	subtitle
+		subtitle= Mostrar el menú fijo (header)
+	checkbox
+		name = fixed_menu
+		description = Dejar el menú fijo cuando tus clientes se desplazan hacia abajo en el sitio
+	
+	subtitle
+		subtitle = Elegí el menú para el final de la página (footer)	
+	menu
+		name = footer_menu
+		description = ¿Qué menú vas a mostrar al final de la página?
+
+	i18n_input
+		name = label_contact_menu
+		description = Título para el menu del footer
+	checkbox
+		name = product_filters
+		description = Mostrar barra lateral con filtros en listado de productos
+
+Redes sociales
+	title
+		title = Facebook
+	subtitle
+		subtitle = Recuadro de 'Me gusta' de tu Página de Facebook
+	checkbox
+		name = show_footer_fb_like_box
+		description = Mostrar el recuadro de 'Me gusta' de tu Página de Facebook en la página de inicio (tienes que configurar la página de Facebook en 'Información de contacto')
+	subtitle
+		subtitle = Comentarios en el producto
+	checkbox
+		name = show_product_fb_comment_box
+		description = Permitir que tus clientes te dejen comentarios con su usuario de Facebook en la página de producto
+	subtitle
+		subtitle = Moderar comentarios de facebook
+	text
+		name = fb_admins
+		description = Para moderar los comentarios de Facebook necesitamos tu ID de Facebook (puedes obtenerlo <a target='_blank' href='http://findmyfacebookid.com/'>aquí</a>)
+	title
+		title = Twitter
+	subtitle
+		subtitle = Mostrar tus últimos Tweets
+	textarea
+		name = twitter_widget
+		description = Mostrar tus últimos Tweets (se debe configurar <a href='https://twitter.com/settings/widgets/' target='_blank'>un nuevo widget en Twitter</a> y copiar y pegar el HTML aquí)
+
+
+Banners con imágenes 
+	title
+		title = Para la página de inicio
+	image
+		original = banner-home.jpg
+		description = Te recomendamos utilizar imágenes de 728x90 px
+	i18n_input
+		name = banner_home_url
+		description = [Opcional] Página web a la que quieres que te lleve el banner de la página de inicio al hacer click
+	title
+		title = Para las páginas de categorías
+	image
+		original = banner-products.jpg
+		description = Te recomendamos utilizar imágenes de 728x90 px
+	i18n_input
+		name = banner_products_url
+		description = [Opcional] Página web a la que quieres que te lleve el banner de las páginas de categorías al hacer click
+	title
+		title = Para la página de contacto
+	image
+		original = banner-contacto.jpg
+		description = Te recomendamos utilizar imágenes de 728x90 px
+	i18n_input
+		name = banner_contacto_url
+		description = [Opcional] Página web a la que quieres que te lleve el banner de la página de contacto al hacer click
+
+Banners de servicios
+	title
+		title = Ubicación de los banners
+	checkbox
+		name = banner_services
+		description = Mostrar el banner de servicios en toda la tienda (se verá arriba del footer)
+	checkbox
+		name = banner_services_home
+		description = Mostrar el banner de servicios solo en la página principal (se verá debajo del slider)
+	checkbox
+		name = banner_services_category
+		description = Mostrar el banner de servicios en la lista de productos (se verá arriba de los productos)
+	
+	title
+		title = Textos editables de los banners
+	subtitle
+		subtitle = Banner para envíos
+	i18n_input
+		name = banner_services_01_title
+		description = Título del banner
+	i18n_input
+		name = banner_services_01_description
+		description = Descripción del banner 
+	subtitle
+		subtitle = Banner para tarjetas de crédito
+	i18n_input
+		name = banner_services_02_title
+		description = Título del banner
+	i18n_input
+		name = banner_services_02_description
+		description = Descripción del banner
+	subtitle
+		subtitle = Banner para seguridad
+	i18n_input
+		name = banner_services_03_title
+		description = Título del banner
+	i18n_input
+		name = banner_services_03_description
+		description = Descripción del banner
+
+Opciones generales
+	subtitle
+		subtitle = Botón para seguir cargando productos
+	checkbox
+		name = infinite_scrolling
+		description = ¿Permitir que en el listado de productos tus clientes carguen nuevos productos cuando llegan al final de la página?
+	
+	subtitle
+		subtitle = Título para los productos en ofertas
+	i18n_input
+		name = sale_message
+		description = Escribe el título de la etiqueta para los productos en oferta
+	
+	subtitle
+		subtitle = Título para los productos sin stock
+	i18n_input
+		name = nostock_message
+		description = Escribe el título de la etiqueta para los productos sin stock
+	
+	subtitle
+		subtitle = Pop-up de compra rápida 
+	checkbox
+		name = quick_shop
+		description = Permitir que tus clientes puedan agregar productos a su carrito rápidamente desde una ventana emergente en el listado de productos
+	i18n_input
+		name = quick_shop_label
+		description = Texto que aparece al colocar el mouse sobre un producto que dispara la ventana emergente
+	
+	subtitle
+		subtitle = Ubicación de la descripción del producto
+	dropdown
+		name = product_description_position
+		description = ¿Dónde deseas mostrar la descripción del producto en la página de producto?
+		values
+			above = Debajo del precio (recomendado para descripciones cortas)
+			below = Debajo de las imágenes (recomendado para descripciones largas)
+	subtitle
+		subtitle = Botón seguir comprando en el carrito de compras
+	checkbox
+		name = continue_buying
+		description = Mostrar el botón de 'Seguir comprando' en el carrito de compras
+Edición avanzada de CSS
+	title
+		title = Para diseñadores web
+	subtitle
+		subtitle = Esta sección es recomendada solo para quienes tengan conocimiento de CSS
+	textarea
+		name = css_code
+		description = Acá podés escribir código CSS para que se muestre en tu sitio web.

@@ -1,0 +1,172 @@
+Opciones Generales
+	i18n_input
+		name = sale_message
+		description = Escribe el título de la etiqueta para los productos en oferta
+	i18n_input
+		name = nostock_message
+		description = Escribe el título de la etiqueta para los productos sin stock
+	checkbox
+		name = quick_shop
+		description = Permitir que tus clientes puedan agregar productos a su carrito rápidamente desde una ventana emergente en el listado de productos
+	i18n_input
+		name = quick_shop_label
+		description = Texto que aparece al colocar el mouse sobre un producto que dispara la ventana emergente
+	i18n_input
+		name = view_product_label
+		description = Texto que aparece al colocar el mouse sobre un producto que lleva al detalle del producto
+Colores
+	color
+		name = color7
+		description = Color de fondo en la barra de navegación, el footer y nombre de los productos. Tambien es el color de textos para el cuerpo del sitio
+	color
+		name = color1
+		description = Color de los textos en el cuerpo del sitio
+	color
+		name = color2
+		description = Color de acento (líneas debajo de los títulos y en la parte superior al nav) y para iconos de redes sociales
+	color
+		name = color3
+		description = Color de fondo para botones de compra y contacto. Tambien este color aplica al precio de producto en su página de detalle
+	color
+		name = color4
+		description = Color de texto en la navegación principal y el footer
+	color
+		name = color5
+		description = Color de fondo general
+	color
+		name = color6
+		description = Color de fondo en el footer
+
+Fuentes
+	font
+		name = myfont
+		description = Fuente Principal.
+		values
+			"Lato", sans-serif = Lato
+			'Oswald', sans-serif = Oswald
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			
+	font	
+		name = myfont2
+		description = Fuente para Títulos / Ofertas / Stock.
+		values
+			"Lato", sans-serif = Lato
+			'Oswald', sans-serif = Oswald
+			Arial,sans-serif = Arial
+			Helvetica,Arial,sans-serif = Helvetica
+			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
+			Verdana,Geneva,sans-serif = Verdana
+			Tahoma,Geneva,sans-serif = Tahoma
+			
+Menu Superior
+	dropdown
+		name = menu_fixed
+		description = Menu Fixed
+		values
+			affix = Menu fixed
+			no = Menu standard
+Página de Inicio
+	dropdown
+		name = home_display
+		description = ¿Qué quieres mostrar en la página de inicio; tus productos, el slider de fotos o ambos?
+		values
+			products = Productos Destacados
+			slider = Slider
+			both = Ambos
+	checkbox
+		name = slider_auto
+		description = Pasar las imágenes de forma automática
+	gallery
+		name = slider
+		description = Selecciona las imágenes del slider (recomendamos que todas las imágenes sean del mismo tamaño con un ancho de 1280px)
+		gallery_image = Selecciona una imagen
+		gallery_link = Link de la imagen (opcional)
+		gallery_width = 980
+	image
+		original = banner-home.jpg
+		description = Elige el banner que aparece debajo de los productos destacados (recomendamos utilizar imágenes de 728x90 px).
+	i18n_input
+		name = banner_home_url
+		description = Link para el banner (opcional)
+	checkbox
+		name = show_footer_fb_like_box
+		description =  Mostrar el recuadro de 'Me gusta' de tu Página de Facebook en la página de inicio (tienes que configurar la página de Facebook en 'Información de contacto')
+	textarea
+		name = twitter_widget
+		description = Mostrar últimos Tweets (se debe configurar <a href='https://twitter.com/settings/widgets/' target='_blank'>un nuevo widget en Twitter</a> y copiar y pegar el HTML aquí).
+		
+Footer	
+	menu
+		name = footer_menu
+		description = ¿Que menú deseas mostrar en el footer?
+	i18n_input
+		name = label_contact_menu
+		description = Título para el menu
+		
+Página de Categorías
+	checkbox
+		name = infinite_scrolling
+		description = ¿Permitir que en el listado de productos tus clientes carguen nuevos productos cuando llegan al final de la página?
+	image
+		original = banner-products.jpg
+		description = Elige el banner que aparece arriba del listado de productos (recomendamos utilizar imágenes de 728x90 px)
+	i18n_input
+		name = banner_products_url
+		description = Link para el banner (opcional)
+		
+Página de Producto		
+	checkbox
+		name = show_product_fb_comment_box
+		description = Permitir que tus clientes te dejen comentarios con su usuario de Facebook en la página de producto
+	text
+		name = fb_admins
+		description = ID del usuario moderador de los comentarios de Facebook (obtener <a target='_blank' href='http://findmyfacebookid.com/'>aquí</a>)
+		
+	dropdown
+		name = product_description_position
+		description = ¿Donde quieres mostrar la descripción del producto?
+		values
+			up = Debajo del botón agregar al carrito
+			down = Debajo de los thumbs de fotos ocupando el ancho
+
+Página de Contacto
+	image
+		original = banner-contacto.jpg
+		description = Elige el banner que aparece debajo de la información de contacto(recomendamos utilizar imágenes de 728x90 px)
+	i18n_input
+		name = banner_contacto_url
+		description = Link para el banner (opcional)
+Banner de Servicios
+	checkbox
+		name = banner_services
+		description = Mostrar el banner de servicios en toda la tienda (se verá arriba del footer)
+	checkbox
+		name = banner_services_home
+		description = Mostrar el banner de servicios solo en la home (se verá debajo del slider)
+	checkbox
+		name = banner_services_category
+		description = Mostrar el banner de servicios en la lista de productos (se verá arriba de los productos)
+	i18n_input
+		name = banner_services_01_title
+		description = Título del banner para envíos
+	i18n_input
+		name = banner_services_01_description
+		description = Descripción del banner para envíos
+	i18n_input
+		name = banner_services_02_title
+		description = Título del banner para tarjetas de crédito
+	i18n_input
+		name = banner_services_02_description
+		description = Descripción del banner para tarjetas de crédito
+	i18n_input
+		name = banner_services_03_title
+		description = Título del banner para seguridad
+	i18n_input
+		name = banner_services_03_description
+		description = Descripción del banner para seguridad		
