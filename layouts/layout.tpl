@@ -219,6 +219,10 @@
                     </li>
                 </ul>
             </nav>
+            
+            <div class="categorias-header">
+                {% snipplet "navigation_header.tpl" %}
+            </div>
                      
                 <!-- TEMPLATE CONTENT INICIO -->
 

@@ -21,13 +21,39 @@
 
 /* CONTAINER */
 body{
-    background-image: url(../img/Sem%20t%C3%ADtulo-19.jpg);
+    background-image: url(../img/Background.jpg);
     background-size: 100%;
     background-attachment: fixed;
     font-family: 'Happy Monkey', cursive;
 }
 
 /* ----- MYCONTAINER ----- */
+
+    .categorias-header:extend(.full-container){
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-width: 0 0 2px 0;
+        border-color: @white-4;
+        border-style: solid;
+
+        a{
+            .inline-content(6%);   
+            text-align: center;
+            padding:5px 3px;
+            height: 35px;
+            
+            font-size: 1.0em;
+            font-weight: 600;
+            color: @white-2;
+        }
+        
+        a:hover{
+            color: @green-2;
+            font-weight: 700;
+        }
+        
+    }
+
 .myContainer{
     position: relative;
     
@@ -646,17 +672,9 @@ body{
        }
      }
        
-    .produtos-content{
-        
-        @media (min-width:800px){
-            width: 100%;
-            display: table;
-        }
-        @media (min-width:1024px){
-            .float-config(right,74%);
-        }
-        
-        .slide-show{width: 98%;}
+    .produtos-content:extend(.full-container){
+           
+        .slide-show{width: 100%;}
         
         h1{
             margin-top: 3%;
@@ -694,13 +712,13 @@ body{
 
                 .box{
                     
-                    @media (min-width:801px){.inline-content(4%);}
+                    @media (min-width:801px){.inline-content(3%);}
                     @media (min-width:1000px){
-                        .inline-content(3%);
+                        .inline-content(4%);
                         padding: 3.5%;
                     }
                     @media (min-width:1350px){
-                        .inline-content(4%);
+                        .inline-content(5%);
                         padding:2%;
                     }    
 

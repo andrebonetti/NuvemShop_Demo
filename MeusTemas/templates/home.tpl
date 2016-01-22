@@ -8,12 +8,16 @@
                     <!--<div class="content">
                         {{ "img/Slides/Banner_loja_brinquedos-1.png" | static_url | img_tag("La No Parque Banner")}}
                     </div>-->
+                    <div class="content notificacao">
+                        {{ "img/Notificacoes/Notificacao_Ferias.jpg" | static_url | img_tag("Notificação Ferias La No Parque")}}
+                    </div> 
                     <div class="content">
                         <a href="http://www.lanoparque.com.br/produtos/">{{ "img/Slides/Banner_loja_brinquedos-2.png" | static_url | img_tag("La No Parque Banner")}}</a>
                     </div>
                     <div class="content">
                         <a href="http://www.lanoparque.com.br/bicicletas/">{{ "img/Slides/Banner_loja_brinquedos-3.png" | static_url | img_tag("La No Parque Banner")}}</a>
-                    </div>       
+                    </div> 
+                    
                     
                 </div>
 
@@ -111,7 +115,7 @@
         
             <div class="categorias">
                 
-                {% snipplet "categories_home.tpl" %}
+                {% snipplet "categories.tpl" %}
                 
             </div>
             
@@ -136,8 +140,6 @@
                 {% snipplet "newsletter.tpl" %}
             </div>
             
-            
-            
-            {{ 'js/my_script-home.js' | static_url | script_tag }}
-        
         </section>
+
+{{ 'js/my_script-home.js' | static_url | script_tag }}

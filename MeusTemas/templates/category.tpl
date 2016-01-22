@@ -1,13 +1,7 @@
 {% paginate by 20 %}
 
 <section class="produtos">
-		
-		<aside>
-			            
-            {% snipplet "categories.tpl" %}
-                        
-		</aside>
-        
+		       
         <div class="produtos-content">
         
             <div class="slide-show slide-produtos" id="slider1_container">

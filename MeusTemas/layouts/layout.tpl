@@ -195,6 +195,10 @@
                     </li>
                 </ul>
             </nav>
+            
+            <div class="categorias-header">
+                {% snipplet "categories_header.tpl" %}
+            </div>
                      
                 <!-- TEMPLATE CONTENT INICIO -->
 
