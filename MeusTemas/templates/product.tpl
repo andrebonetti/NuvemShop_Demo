@@ -13,28 +13,17 @@
         
         <div class="img-container">
             <!--{{ product.featured_image | product_image_url('large') | img_tag(product.featured_image.alt) }}-->
-            <div class="col-md-6 product-photos img-content">
+            <div class="product-photos img-content">
                 
                     <div class="current-photo">
                         <div class="current-photo-container">
-                        {% if product.featured_image %}
-                            <a href="{{ product.featured_image | product_image_url('original') }}" id="zoom" class="cloud-zoom" rel="position: 'inside', showTitle: false, loading: '{{ 'Cargando...' | translate }}'">
+                            {% if product.featured_image %}
+                                <a href="{{ product.featured_image | product_image_url('original') }}" id="zoom" class="cloud-zoom" rel="position: 'inside', showTitle: false, loading: '{{ 'Cargando...' | translate }}'">
+                                    {{ product.featured_image | product_image_url('large') | img_tag(product.name) }}
+                                </a>
+                            {% else %}
                                 {{ product.featured_image | product_image_url('large') | img_tag(product.name) }}
-                            </a>
-                        {% else %}
-                            {{ product.featured_image | product_image_url('large') | img_tag(product.name) }}
-                        {% endif %}
-                            <div class="product-boxes">
-                                {% if product.compare_at_price %}
-                                    <div class="offer"><p>{{ settings.offer_text }}</p></div>
-                                {% endif %}
-                                {% if not product.available %}
-                                    <div class="product-related-button"><p>{{ settings.no_stock_text }}</p></div>
-                                {% endif %}
-                                {% if product.free_shipping %}
-                                    <div class="free-shipping"><p>{{ settings.free_shipping_text }}</p></div>
-                                {% endif %}
-                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 
