@@ -1,7 +1,8 @@
-<section class="quem-somos" id="atual-page">
-
-    <h1 class="">{{ page.name }}</h1>
-
-    {{ page.content }}
-
-</section>
+<div class="page-content">
+	<div class="headerBox">
+		<h2>{{ page.name }}</h2>
+	</div>
+	<div class="contentBox user-content">
+		{{ page.content }}
+	</div>
+</div>

@@ -1,61 +1,10 @@
-{% for item in navigation %}
-		{% if item.subitems %}
-            <!-- SUB ITENS -->
-            <div class="filtro">
-                
-                <h2>Categorias</h2>
-                
-                <ul class="submenu" style="">
-                    {% snipplet "navigation.tpl" with navigation = item.subitems %}
-                </ul>
-                
-            </div>
-        {% endif %}
-{% endfor %}    
-<!--<div id="categories-column">
-        
-        <div id="get-filters" style="display: none;">
-            <h4>Filtrado por:</h4>
-        </div>
-        <script>LS.showFilters();</script>-->
-
-        <!--{% if parent_category and parent_category.id!=0 %}
-            <a href="{{ parent_category.url }}" title="{{ parent_category.name }}" class="category-back"><i class="fa fa-chevron-left"></i>{{ parent_category.name }}</a>
-        {% endif %}
-
-       {% if filter_categories %}
-
-            <div class="filtro">
-
-                <h2>{{ category.id!=0 ? category.name :("Categorías" | translate) }}</h2>
-            
-                <ul id="categories-list">
-                    {% for category in filter_categories %}
-                        <li data-item="{{ loop.index }}"><a href="{{ category.url }}" title="{{ category.name }}">{{ category.name }}</a></li>
-                    {% endfor %}
-                </ul>
-
-                <a href="#" id="show-more-cats" style="display: none;" title="{{ 'Mostrar más categorías' | translate }}"><i class="fa fa-angle-down"></i></a>
-
-            </div>    
-                
-        {% endif %}
-
-    <script>
-        var categoriesList = $("#categories-list li");
-
-        if (categoriesList.length > 5) {
-            $("#show-more-cats").show(); 
-            for (i = 5; i < categoriesList.length; i++) { 
-                $(categoriesList[i]).hide();
-            }
-        }
-
-        $("#show-more-cats").click(function(e){
-            e.preventDefault();
-            for (i = 5; i < categoriesList.length; i++) { 
-                $(categoriesList[i]).toggle();
-            }
-            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
-        });
-    </script>-->
+{% for c in categories %}
+	<li class="category-top">
+		<a href="{{ c.url }}"{% if c.active %} class="active"{% endif %}>{{ c.name }}</a>
+		{% if c.subcategories %}
+			<ul class="collection-list">
+				{% snipplet "categories.tpl" with categories = c.subcategories %}
+			</ul>
+		{% endif %}
+	</li>
+{% endfor %}

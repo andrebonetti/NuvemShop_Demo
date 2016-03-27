@@ -1,145 +1,81 @@
-        <section class="home" id="atual-page">
-
-            <div class="slide-show" id="slider1_container">
-
-                <!-- Slides Container -->
-                <div data-u="slides" class="slide-container">
-
-                    <!--<div class="content">
-                        {{ "img/Slides/Banner_loja_brinquedos-1.png" | static_url | img_tag("La No Parque Banner")}}
-                    </div>-->
-                    <!--<div class="content notificacao">
-                        {{ "img/Notificacoes/Notificacao_Ferias.jpg" | static_url | img_tag("Notificação Ferias La No Parque")}}
-                    </div>-->
-                    <div class="content">
-                        <a href="http://www.lanoparque.com.br/produtos/">{{ "img/Slides/Banner_loja_brinquedos-2.png" | static_url | img_tag("La No Parque Banner")}}</a>
-                    </div>
-                    <div class="content">
-                        <a href="http://www.lanoparque.com.br/bicicletas/">{{ "img/Slides/Banner_loja_brinquedos-3.png" | static_url | img_tag("La No Parque Banner")}}</a>
-                    </div> 
-                    
-                    
-                </div>
-
-                <div data-u="navigator" class="jssorb21" style="position: absolute; bottom: 15px; left: 6px;">
-                    <div data-u="prototype" style="Width:19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px;"></div>
-                </div>
-                
-                <!-- Bullet Navigator Skin End -->
-
-                <!-- Arrow Navigator Skin Begin -->
-                <!-- Arrow Left -->
-                <span data-u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 123px; left: 8px;"></span>
-                <!-- Arrow Right -->
-                <span data-u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px"></span>
-                <!-- Arrow Navigator Skin End -->
-                <a style="display: none" href="http://www.jssor.com">image carousel</a>
-
-                <script>
-                    jssor_slider1_starter('slider1_container');
-                </script>
-
-            </div> 
-        
-            <div class="destaque">
-                
-                <h2>Produtos em Destaque</h2>
-                
-                <div class="boxes">
-                    
-                    <!--  nome da seção de destaque -->
-                    {% for product in sections.primary.products %}
-                        <div class="box">
-                            <a href="{{ product.url }}" title="{{ product.name }}">
-                                <div class="img-content">
-                                     {{ product.featured_image | product_image_url("medium") | img_tag(product.name) }}
-                                </div>
-                                <h3>{{ product.name }}</h3>
-
-                                <p class="valor">{{ product.price | money }}</p>
-                            </a>
-                        </div>
-                    {% endfor %}
-                    
-                </div> 
-                        
-            </div>
-        
-            <div class="recentes">
-                
-                <h2>Produtos Recentes</h2>
-                
-                <div class="boxes">
-                    
-                    <!--  nome da seção de destaque -->
-                    {% for product in sections.recent.products %}
-                        <div class="box">
-                            <a href="{{ product.url }}" title="{{ product.name }}">
-                                <div class="img-content">
-                                     {{ product.featured_image | product_image_url("medium") | img_tag(product.name) }}
-                                </div>
-                                <h3>{{ product.name }}</h3>
-
-                                <p class="valor">{{ product.price | money }}</p>
-                            </a>
-                        </div>
-                    {% endfor %}
-                    
-                </div> 
-                        
-            </div>
-        
-            <div class="em-breve">
-                
-                <h2>Promoção</h2>
-                
-                <div class="boxes">
-                    
-                    <!--  nome da seção de destaque -->
-                    {% for product in sections.offer.products %}
-                        <div class="box">
-                            <a href="{{ product.url }}" title="{{ product.name }}">
-                                <div class="img-content">
-                                     {{ product.featured_image | product_image_url("medium") | img_tag(product.name) }}
-                                </div>
-                                <h3>{{ product.name }}</h3>
-
-                                <p class="valor">{{ product.price | money }}</p>
-                            </a>
-                        </div>
-                    {% endfor %}
-                    
-                </div> 
-                        
-            </div>
-        
-            <div class="categorias">
-                
-                {% snipplet "categories_home.tpl" %}
-                
-            </div>
-            
-            <div class="extend-categorias">
-                <p>Todas as Categorias</p>
-                {{ "img/arrow_down.png" | static_url | img_tag("Mostrar Categorias Brinquedos Parque", {'class' : "link"})}}
-                {{ "img/arrow_down_hover.png" | static_url | img_tag("Mostrar Categorias Brinquedos Parque", {'class' : "hover"})}}
-            </div>
-        
-            <div class="hide-categorias">
-                <p>Ocultar Categorias</p>
-                {{ "img/arrow_up.png" | static_url | img_tag("Ocultar Categorias Brinquedos Parque", {'class' : "link"})}}
-                {{ "img/arrow_up_hover.png" | static_url | img_tag("Ocultar Categorias Brinquedos Parque", {'class' : "hover"})}}
-            </div>
-            
-            <div class="newsletter">
-                {{ "img/Slides/Banner_loja_brinquedos-1.png" | static_url | img_tag("Banner Newslatter", {'class' : "newslatter_banner"})}}
-                <!--<h2>Newsletter</h2>-->
-                {% if settings.news_txt %}
-                    <p>{{ settings.news_txt }}</p>
+{% if settings.home_display == "slider" or settings.home_display == "both" %}
+    <div class="slider-wrapper theme-light">
+        <div class="nivoSlider">
+            {% for slide in settings.slider %}
+                {% set slide_img = slide.image | static_url %}
+                {% if slide.link is empty %}
+                    <img src="{{ slide_img }}" data-thumb="{{ slide_img }}" alt="" />
+                {% else %}
+                    <a href="{{ slide.link }}"><img src="{{ slide_img }}" data-thumb="{{ slide_img }}" alt="" /></a>
                 {% endif %}
-                {% snipplet "newsletter.tpl" %}
-            </div>
-            
-        </section>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+{% if settings.home_display == "products" or settings.home_display == "both" %}
+<div id="showcase" class="clear">
+{% for product in sections.primary.products | take(1) %}
+	<div id="details">
+		<h3>{{ product.name }}</h3>
+		{% if product.display_price %}
+		<h4>{{ product.price | money }}</h4>
+        {% if product.compare_at_price %}
+        <h4><del>{{ product.compare_at_price | money }}</del></h4>
+        {% endif %}
+        {% endif %}
+		<div class="share">
+			<div class="shareItem twitter">
+				{{product.social_url | tw_share('none', 'Tweet', store.twitter_user, current_language.lang) }}
+			</div>
+			<div class="shareItem google"> 
+				{{product.social_url | g_plus('medium') }}
+			</div>
+			<div class="shareItem facebook"> 
+				{{product.social_url | fb_like('store-product', 'button_count')}}
+			</div>
+		</div>
+		<p>{{ product.description | plain | truncate(215) }}</p>
+		<h5 class="clear"><a href="{{ product.url }}">{{ 'Más detalles' | translate}}</a></h5>
+	</div>
+	<div id="image">
+		<a href="{{ product.url }}">{{ product.featured_image | product_image_url("medium") | img_tag(product.featured_image.alt) }}</a>
+	</div>
+{% endfor %}
+</div>
+{% endif %}
 
-{{ 'js/my_script-home.js' | static_url | script_tag }}
+{% if "banner-home.jpg" | has_custom_image %}
+    <div class="banner">
+        {% if settings.banner_home_url != '' %}
+            {{ "banner-home.jpg" | static_url | img_tag | a_tag(settings.banner_home_url) }}
+        {% else %}
+            {{ "banner-home.jpg" | static_url | img_tag }}
+        {% endif %}
+    </div>
+{% endif %}
+
+{% if settings.welcome_message %}
+<div id="excerpt">
+	<div>
+        {{ settings.welcome_message }}
+	</div>
+</div>
+{% endif %}
+<ul id="products" class="clear">
+{% for otherProduct in sections.secondary.products %}
+	<li {% if loop.index % 3 == 0 %}class="end"{% endif %}>
+		<div class="image">
+			<div class="overflow">
+				<div class="align">
+				{% if otherProduct.display_price %}
+					<h6>{{ otherProduct.price | money }}</h6>
+				{% endif %}
+					
+					<div><a href="{{ otherProduct.url}}">{{ otherProduct.featured_image | product_image_url("medium") | img_tag(otherProduct.featured_image.alt) }}</a></div>
+				</div>
+			</div>
+		</div>
+		<p><a href="{{ otherProduct.url}}">{{ otherProduct.name }}</a></p>
+	</li>
+{% endfor %}
+	</ul>

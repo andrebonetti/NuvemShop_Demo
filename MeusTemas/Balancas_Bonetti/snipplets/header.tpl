@@ -1,45 +1,71 @@
-<div id="header" class="clear">
-	<div id="navigate">
-        
-		{% if has_logo %}
-            <!-- if has_logo -->   
-			<div id="logo">
-				{{ store.logo | img_tag | a_tag(store.url) }}
-			</div>
-		{% else %}
-            <!-- ELSE - if has_logo -->  
-			<h3>{{ store.name | a_tag(store.url) }}</h3>
-		{% endif %}
-        
-		<div id="nav">
-			<ul>
-                <!-- for item in navigation (MENU PRINCIPAL) -->
-				{% for item in navigation %}
-					<li {% if loop.last %} class="end"{% endif %}>
-						<a href="{{ item.url }}"{% if item.current %} class="active"{% endif %} {% if item.url | is_external %}target="_blank"{% endif %}>{{ item.name }}</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
-        
-	</div>
+        <div class="top-header">
+            <div class="myContainer">
+                
+                <a href="">SITEMAP</a>
+                <a href="" data-toggle="modal" data-target="#mdlContato">CONTATO</a>
+                
+                {% if store.has_accounts %}
+                <!-- if store.has_accounts -->  
+                
+                    {% if not customer %}
+                        <!-- if not customer -->  
+                        {{ "LOGIN" | a_tag(store.customer_login_url) }}
+                
+                        {% if 'mandatory' not in store.customer_accounts %}
+                            <!-- if 'mandatory' not in store.customer_accounts -->  
+                            {{ "CADASTRAR" | a_tag(store.customer_register_url) }}
+                        {% endif %}
+                
+                    {% else %}
+                        <!-- ELSE - if not customer -->  
+                        {{ "MINHA CONTA" | a_tag(store.customer_home_url) }}
+                        {{ "SAIR" | a_tag(store.customer_logout_url) }}
+                
+                    {% endif %}
+                {% endif %}
 
-    {% if not store.is_catalog %}
-        <!-- if not store.is_catalog -->
-        <div id="items">
-            <h2>{{ cart.items_count }}</h2><div></div>
-            <p>{% if cart.items_count == 1 %}{{"Producto" | translate }}{% else %}{{"Productos" | translate }}{% endif %} {{"en" | translate }} <a href="{{store.cart_url}}">{{"tu carrito" | translate }}</a> &rarr;</p>
+                <p class="telefone">(11) 2023-1723</p>                
+                <p class="telefone">(11) 2682-2830 |</p>
+                
+            </div>
         </div>
-    {% endif %}
-
-	{% if languages | length > 1 %}	
-        <!-- if languages | length > 1 -->
-        <div class="languages">
-            {% for language in languages %}
-                {% set class = language.active ? "active" : "" %}
-                <a href="{{ language.url }}" class="{{ class }}">{{ language.country | flag_url | img_tag(language.name) }}</a>
-            {% endfor %}
-        </div>
-	{% endif %}
-    
-</div>
+        
+        <header>  
+            
+            <div class="logo">
+                
+                {% if has_logo %}
+                    <!-- if has_logo -->   
+				    {{ store.logo | img_tag | a_tag(store.url) }}
+		        {% else %}
+                    <!-- ELSE - if has_logo -->  
+			         {{ store.name | a_tag(store.url) }}
+		        {% endif %}
+                
+                <h1>Venda de Balanças Novas e Usadas</h1>
+                <h2>Assistência Técnica de Balanças e Acessórios</h2>
+                
+            </div>
+                     
+            <div class="icones_destaque">
+                
+                <a href="{{store.cart_url}}">
+                    {{ "img/icone_carrinho.png" | static_url | img_tag("Carrinho", {'class' : "carrinho"})}}
+                    <p>{{ cart.items_count }}</p>
+                </a>
+                
+                <a href="">
+                    {{ "img/icone_favoritos.png" | static_url | img_tag("Favoritos", {'class' : "favoritos"})}}
+                    <p>0</p>
+                </a>
+                
+            </div>
+            
+            <div class="busca">
+                <input type="text" class="form-control" placeholder="Buscar">
+                <a href="">
+                    {{ "img/icone_botao.png" | static_url | img_tag("Icone Busca")}}
+                </a>
+            </div>
+                
+        </header>

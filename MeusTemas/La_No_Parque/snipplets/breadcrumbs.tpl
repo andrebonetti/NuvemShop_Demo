@@ -1,10 +1,10 @@
-<div itemscope itemtype="http://www.schema.org/WebPage" itemid="body">
-    <div id="breadcrumb" itemprop="breadcrumb">
+<div id="breadcrumb" itemscope itemtype="http://www.schema.org/WebPage" itemid="body">
+    <div itemprop="breadcrumb">
         <a class="crumb" href="{{ store.url }}" title="{{ store.name }}">{{ "Inicio" | translate }}</a>
         {% for crumb in breadcrumbs %}
-            <span class="separator">-</span>
+            <span class="separator">&gt;</span>
             {% if crumb.last %}
-                <span class="crumb last">{{ crumb.name }}</span>
+                <strong class="crumb last">{{ crumb.name }}</strong>
             {% else %}
                 <a class="crumb" href="{{ crumb.url }}" title="{{ crumb.name }}">{{ crumb.name }}</a>
             {% endif %}
