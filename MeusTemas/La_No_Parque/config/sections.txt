@@ -1,7 +1,15 @@
 primary
-	name = Principal
+	name = Productos destacados
 	description = Pon aquí los productos que más quieras destacar
-	
-secondary
-	name = Secundario
-	description = Pon aquí productos destacados de menor importancia
+
+recent
+	name = Productos recientes
+	description = Pon aquí los productos recientes
+
+offer
+	name = Productos en oferta
+	description = Pon aquí los productos en oferta
+
+coming
+	name = Próximamente
+	description = Pon aquí los productos que vendrán

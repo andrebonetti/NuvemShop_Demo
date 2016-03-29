@@ -1,6 +1,8 @@
 {% if pages.numbers %}
-	{{ "pág." | translate }}
-	{% for page in pages.numbers %}
+	{% if pages.previous %}
+        <a href="{{ pages.previous }}" class="nobutton"><</a>
+    {% endif %}
+    {% for page in pages.numbers %}
 	 	{% if page.selected %}
 	 		<span class="page-number selected">{{ page.number }}</span>
 	 	{% else %}

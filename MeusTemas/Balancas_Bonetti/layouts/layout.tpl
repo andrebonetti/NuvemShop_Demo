@@ -26,9 +26,11 @@
                 {% snipplet "header.tpl" %}
          
                 {% if template == "home" %}
+        
                     <!-- if template == "home" -->
                     <!--------------------------------------- slide-show_home.tpl \/ --------------------------------------->
                     {% snipplet "slide-show_home.tpl" %}
+        
                 {% endif %} 
                 
                 <!--------------------------------------- snipplet "nav.tpl" \/ --------------------------------------->

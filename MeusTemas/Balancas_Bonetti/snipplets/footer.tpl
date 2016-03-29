@@ -109,65 +109,35 @@
            
                 <h2>E-mail</h2>
 
-                  <form action="" method="" class="">
+                    {% if contact and contact.type == 'contact' %}
                   
-                        <select class="form-control" name="assunto" autofocus>
-                            <option>Selecione o Assunto</option>
-                            <option value="Orçamento">Orçamento</option>
-                            <option value="Currículo">Curriculo</option>
-                            <option value="Dúvidas">Duvidas</option>
-                            <option value="Reclamações">Reclamações</option>
-                            <option value="Outros">Outros</option>
-                        </select>
+                        <!-- if contact and contact.type == 'contact' -->
+                        {% if contact.success %}
+                            <!-- if contact.success -->
+                            <p class="alert alert-success">{{ "El mensaje ha sido enviado con éxito, muchas gracias." | translate }}</p>
+                        {% else %}
+                            <!-- ELSE - if contact.success -->
+                            <p class="alert alert-danger">{{ "Debes completar los datos de contacto." | translate }}</p>
+                        {% endif %}
                   
-				        <input type="text" name="nome" class="form-control nome" placeholder="Nome Completo" required>
+                    {% endif %}
+
+                    <form class="contact_form" action="/winnie-pooh" method="post" onsubmit="$(this).attr('action', '');">
+                        
+                        <input type="hidden" value="{{ product.id }}" name="product"/>
+                
+				        <input type="text" id="name" name="name" class="form-control nome" placeholder="Nome Completo" required>
 				        
-				        <input type="text" name="empresa" class="form-control empresa" placeholder="Empresa" required>
+                        <input type="email" id="email" name="email" class="form-control email" placeholder="Seu E-mail " required>
 				        
-                        <input type="text" name="segmento" class="form-control segmento" placeholder="Segmento" required>
-				        
-                        <input type="email" name="email" class="form-control email" placeholder="Seu E-mail " required>
-				        
-                        <input type="text" name="telefone" class="form-control telefone" placeholder="Telefone com DDD" required maxlength="11">
-				        
-                        <select name="estado" class="form-control estado" required>
-                            <option value="">Selecione o Estado</option> 
-                            <option value="AC">Acre</option> 
-                            <option value="AL">Alagoas</option> 
-                            <option value="AM">Amazonas</option> 
-                            <option value="AP">Amapá</option> 
-                            <option value="BA">Bahia</option> 
-                            <option value="CE">Ceará</option> 
-                            <option value="DF">Distrito Federal</option> 
-                            <option value="ES">Espírito Santo</option> 
-                            <option value="GO">Goiás</option> 
-                            <option value="MA">Maranhão</option> 
-                            <option value="MT">Mato Grosso</option> 
-                            <option value="MS">Mato Grosso do Sul</option> 
-                            <option value="MG">Minas Gerais</option> 
-                            <option value="PA">Pará</option> 
-                            <option value="PB">Paraíba</option> 
-                            <option value="PR">Paraná</option> 
-                            <option value="PE">Pernambuco</option> 
-                            <option value="PI">Piauí</option> 
-                            <option value="RJ">Rio de Janeiro</option> 
-                            <option value="RN">Rio Grande do Norte</option> 
-                            <option value="RO">Rondônia</option> 
-                            <option value="RS">Rio Grande do Sul</option> 
-                            <option value="RR">Roraima</option> 
-                            <option value="SC">Santa Catarina</option> 
-                            <option value="SE">Sergipe</option> 
-                            <option value="SP">São Paulo</option> 
-                            <option value="TO">Tocantins</option> 
-                        </select>
-                  
-                        <input type="text" name="cidade" class="form-control cidade" placeholder="Cidade">
-                  
-                        <input type="text" name="bairro" class="form-control bairro" placeholder="Bairro" required>
-				        
-                        <textarea  name="mensagem" class="form-control" placeholder="Mensagem" required rows="4"></textarea><br>
+                        <input type="text" id="phone" name="phone" class="form-control telefone" placeholder="Telefone com DDD" required maxlength="11">
+
+                        <textarea  id="message" name="message" class="form-control" placeholder="Mensagem" required rows="4"></textarea><br>
                                    
-				        <button class="btn btn-primary" type="submit">Enviar</button>
+                        <input type="hidden" value="contact" name="type"/>
+                        
+                        <input type="submit" class="btn btn-primary" value="{{ 'Enviar' | translate }}" name="contact"/>
+                        
                         <button class="btn btn-danger" type="reset">Limpar</button>
                   
 				  </form>

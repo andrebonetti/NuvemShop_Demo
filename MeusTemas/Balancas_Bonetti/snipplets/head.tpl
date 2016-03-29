@@ -1,5 +1,5 @@
         <title>{{ page_title }}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="//s3-sa-east-1.amazonaws.com/store-templates/templates/143/631/twig/static/img/Shortcut.png?1226250948" title="" >
+        <link rel="shortcut icon" type="image/x-icon" href="//s3-sa-east-1.amazonaws.com/store-templates/templates/143/631/twig/static/img/fav_icon_balancas_bonetti.png?1642284368" title="" >
         <meta name="description" content="{{ page_description }}" />
         
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
