@@ -1,28 +1,48 @@
-{% paginate by 9 %}
-<div id="excerpt">
-	<h1>{{ category.name }}</h1>
-</div>
+{% paginate by 20 %}
 
-{% snipplet "breadcrumbs.tpl" %}
-
-{% if "banner-products.jpg" | has_custom_image %}
-    <div class="banner">
-        {% if settings.banner_products_url != '' %}
-            {{ "banner-products.jpg" | static_url | img_tag | a_tag(settings.banner_products_url) }}
-        {% else %}
-            {{ "banner-products.jpg" | static_url | img_tag }}
-        {% endif %}
-    </div>
-{% endif %}
-
-{% if products %}
-<ul id="products" class="product-grid clear">
-    {% snipplet "product_grid.tpl" %}
-</ul>
-{% endif %}
-
-<div id="paginate">
-	<div>
-		{% snipplet "pagination.tpl" %}
-	</div>
-</div>
+            <section class="produtos">
+                                                
+                <div class="produto-content">
+                    
+                    <h1>{{ category.name }}</h1>
+                    
+                    {% snipplet "breadcrumbs.tpl" %}
+                    
+                    <div class="cabecalho">
+                    
+                        <p class="quantidade-produtos">{{products_count}} Produto(s)</p>
+                        
+                        <!--ORDENAR POR-->
+                        <div class="sort-bar">
+                            {% snipplet 'sort_by.tpl' %}
+                        </div>
+                                                
+                    </div>
+                    
+                    <div class="boxes">
+                        
+                        {% snipplet "boxes_produtos.tpl" %}  
+                          
+                    </div>
+                    
+                    <ul class="pagination">
+                        {% if pages.previous %}
+                            <li><a href="{{ pages.previous }}">Anterior</a></li>
+                        {% endif %}
+                        {% for page in pages.numbers %}
+                            {% if page.selected %}
+                                <li class="active"><a>{{ page.number }}</a></li>
+                            {% else %}
+                                <li><a href="{{ page.url }}">{{ page.number }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if pages.next %}
+                            <li><a href="{{ pages.next }}">Siguiente</a></li>
+                        {% endif %}   
+                    </ul>
+                    
+                </div>
+            
+                {% snipplet "aside_categorias_produtos.tpl" %}  
+            
+        </section>    

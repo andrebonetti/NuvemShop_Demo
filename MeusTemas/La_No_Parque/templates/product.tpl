@@ -12,6 +12,7 @@
     <div id="single-product-container" class="produto-content" data-variants="{{product.variants_object | json_encode }}">
         
         <div class="img-container">
+            
             <!--{{ product.featured_image | product_image_url('large') | img_tag(product.featured_image.alt) }}-->
             <div class="product-photos img-content">
                 

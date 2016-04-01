@@ -10,49 +10,49 @@
         </div>
     
         <div class="produto-content">
-                    
-                    <h1>{{ product.name }}</h1>
-                    
-                    {% snipplet "breadcrumbs.tpl" %}
-                    
-                    <div class="produto-detalhes">
-                        
-                        <div class="img-container">
             
-                            <!--{{ product.featured_image | product_image_url('large') | img_tag(product.featured_image.alt) }}-->
-                            <div class="product-photos img-content">
+            <h1>{{ product.name }}</h1>
+            
+            {% snipplet "breadcrumbs.tpl" %}
+            
+            <div class="produto-detalhes">
+                
+                <div class="img-container">
+            
+                    <!--{{ product.featured_image | product_image_url('large') | img_tag(product.featured_image.alt) }}-->
+                    <div class="product-photos img-content">
 
-                                    <div class="current-photo">
-                                        <div class="current-photo-container">
-                                            {% if product.featured_image %}
-                                                <a href="{{ product.featured_image | product_image_url('original') }}" id="zoom" class="cloud-zoom" rel="position: 'inside', showTitle: false, loading: '{{ 'Cargando...' | translate }}'">
-                                                    {{ product.featured_image | product_image_url('large') | img_tag(product.name) }}
-                                                </a>
-                                            {% else %}
-                                                {{ product.featured_image | product_image_url('large') | img_tag(product.name) }}
-                                            {% endif %}
-                                        </div>
-                                    </div>
-
-                                    {% if product.images_count > 1 %}
-                                        <div class="img-thumbs">
-                                            {% for image in product.images %}
-
-                                                <a href="{{ image | product_image_url('original') }}" class="cloud-zoom-gallery" rel="useZoom: 'zoom', smallImage: '{{ image | product_image_url('large') }}' " data-image="{{image.id}}">
-                                                    {{ image | product_image_url('thumb') | img_tag(image.alt) }}
-                                                </a>
-
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-
+                        <div class="current-photo">
+                            <div class="current-photo-container">
+                                {% if product.featured_image %}
+                                    <a href="{{ product.featured_image | product_image_url('original') }}" id="zoom" class="cloud-zoom" rel="position: 'inside', showTitle: false, loading: '{{ 'Cargando...' | translate }}'">
+                                        {{ product.featured_image | product_image_url('large') | img_tag(product.name) }}
+                                    </a>
+                                {% else %}
+                                    {{ product.featured_image | product_image_url('large') | img_tag(product.name) }}
+                                {% endif %}
                             </div>
-
                         </div>
-                        
-                        <div class="detalhes">
-                        
-                            <div class="descricao">
+
+                        {% if product.images_count > 1 %}
+                            <div class="img-thumbs">
+                                {% for image in product.images %}
+
+                                    <a href="{{ image | product_image_url('original') }}" class="cloud-zoom-gallery" rel="useZoom: 'zoom', smallImage: '{{ image | product_image_url('large') }}' " data-image="{{image.id}}">
+                                        {{ image | product_image_url('thumb') | img_tag(image.alt) }}
+                                    </a>
+
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+                
+                <div class="detalhes">
+                    
+                           <div class="descricao">
                                 
                                 <h2>Descrição</h2>
                                 
@@ -97,7 +97,7 @@
                                 <a href="http://www.toledobrasil.com.br/balanca/balancas-de-bancada/3400">Veja a descrição completa no site do fabricante</a>
                                 
                             </div>
-                            
+                    
                             <div class="calculo_frete"></div>
                             
                             <div class="valor">
@@ -109,12 +109,38 @@
                                     <p>{{ "Envío sin cargo" | translate }}</p>
                                 </div>
                             {% endif %}
-                            
-                        </div>
-                        
-                    </div>        
+                                        
+                </div>    
+                
+            </div>    
+                    
         </div>
     
-        {% snipplet "aside_categorias_produtos.tpl" %}  
+        {% snipplet "aside_categorias_produtos.tpl" %}
+    
+        <div class="produtos-relacionados">
             
-    </section>    
+            <h2>Produtos Relacionados</h2>
+            
+            <div class="boxes">
+
+                <?php for($i=1;$i <= 10;$i++){?>
+
+                    <div class="box">
+
+                        <a class="img-content" href="produto_detalhes.php">
+                            <img src="img/balanca.png">
+                        </a>
+                        <h2>Nome Produto 1</h2>
+                        <p class="valor">R$00,00</p>
+                        <a class="btn-detalhes" href="">Detalhes</a>
+
+                    </div>
+
+                <?php } ?>
+
+            </div>
+                
+        </div>
+    
+</section>    
