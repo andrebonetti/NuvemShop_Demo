@@ -9,13 +9,8 @@
                 
                     {% if not customer %}
                         <!-- if not customer -->  
-                        {{ "LOGIN" | a_tag(store.customer_login_url) }}
-                
-                        {% if 'mandatory' not in store.customer_accounts %}
-                            <!-- if 'mandatory' not in store.customer_accounts -->  
-                            {{ "CADASTRAR" | a_tag(store.customer_register_url) }}
-                        {% endif %}
-                
+                        {{ "ENTRAR" | a_tag(store.customer_login_url) }} 
+                        {{ "CADASTRO" | a_tag(store.customer_register_url) }}
                     {% else %}
                         <!-- ELSE - if not customer -->  
                         {{ "MINHA CONTA" | a_tag(store.customer_home_url) }}

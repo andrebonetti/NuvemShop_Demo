@@ -19,12 +19,8 @@
                                                 
                     </div>
                     
-                    <div class="boxes">
-                        
-                        {% snipplet "boxes_produtos.tpl" %}  
-                          
-                    </div>
-                    
+                    {% snipplet "boxes_produtos.tpl" %}  
+
                     <ul class="pagination">
                         {% if pages.previous %}
                             <li><a href="{{ pages.previous }}">Anterior</a></li>

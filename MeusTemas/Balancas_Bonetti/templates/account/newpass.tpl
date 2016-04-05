@@ -1,4 +1,4 @@
-<!-- NEW PASS -->
+<!-- NEWPASS -->
 
 <div class="row-fluid">
     <div class="container">

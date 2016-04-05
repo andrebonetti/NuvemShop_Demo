@@ -1,4 +1,4 @@
-<!-- ADRESSES -->
+<!-- ADDREDDES -->
 
 <div class="row-fluid">
     <div class="container">

@@ -116,5 +116,13 @@
         </div>
     
         {% snipplet "aside_categorias_produtos.tpl" %}  
+    
+        <div class="produtos-relacionados">
+              
+            <h2>Produtos Relacionados</h2>
+            
+            {% snipplet "boxes_produtos_relacionados.tpl" %}  
+
+        </div>
             
     </section>    
