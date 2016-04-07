@@ -18,10 +18,29 @@
         </nav>
 
         <div class="categorias">
-            <a href="">Balanças</a>
-            <a href="">Cortadores de Frios</a>
-            <a href="">Liquidificadores</a>
-            <a href="">Serras</a>
+            
+            {% for item in navigation %}
+                {% if item.subitems %}
+                    {% for subItem in item.subitems %}
+            
+                        {% if subItem.name == 'Categoria 1'%}
+                            <a href="{{ subItem.url }}" {% if item.url | is_external %}target="_blank"{% endif %}>{{ subItem.name }}</a>
+                        {% endif %}
+                        {% if subItem.name == 'Categoria 2'%}
+                            <a href="{{ subItem.url }}" {% if item.url | is_external %}target="_blank"{% endif %}>{{ subItem.name }}</a>
+                        {% endif %}
+                        {% if subItem.name == 'Categoria 3'%}
+                            <a href="{{ subItem.url }}" {% if item.url | is_external %}target="_blank"{% endif %}>{{ subItem.name }}</a>
+                        {% endif %}
+                        {% if subItem.name == 'Categoria 4'%}
+                            <a href="{{ subItem.url }}" {% if item.url | is_external %}target="_blank"{% endif %}>{{ subItem.name }}</a>
+                        {% endif %}
+                    
+                    {% endfor %}
+            
+                {% endif %}
+            {% endfor %}
+            
             <a href="">Mais +</a>
         </div>
                 
