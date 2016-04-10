@@ -15,10 +15,6 @@
 	overflow: hidden;
 }
 
-.slide-produtos{
-    height: 370px;
-}
-
 .slide-container img{
 	width:100%;
 	margin-bottom:5%;
@@ -32,8 +28,6 @@
     width: 350px;
     margin: 0 auto;
 }
-
-
 
 
             .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
@@ -89,3 +83,7 @@
             .jssora21rdn {
                 background-position: -303px -33px;
             }
+
+.slide-produtos{
+    height: 400px;
+}
