@@ -1,11 +1,11 @@
-<div class="page-content">
-	<div class="headerBox">
-		<h2>{{ "Error" | translate }}</h2>
-        <p>{{ "La página que estás buscando no existe." | translate }} <small>{{ "Quizás te interesen los siguientes productos." | translate }}</small></p>
-	</div>
-	<div class="contentBox fullWidth">
-		<ul id="products" class="product-grid">
-			{% snipplet "product_grid.tpl" with 'products' = sections.primary.products %}
-		</ul>
-	</div>
-</div>
+{% snipplet "sidebar.tpl" %}
+<div id="content" class="single">
+	<h1 class="title">{{ "Desculpe, mas a página que você está procurando não existe." | translate }}</h1>
+    <h2>{{ "Talvez você se interesse pelos seguintes produtos:" | translate }}</h2>
+	
+    <div class="listado">
+    {% snipplet "product_grid.tpl" with products = sections.slider.products %}
+    </div>
+    
+	<div class="clear"></div>
+</div><!--content-->

@@ -1,23 +1,32 @@
-Variante Roja
-	button_color		= #7A1631
-	links_color		 	= #CF423C
-	border_color     	= #FFE294
-	links_hover        	= #AE0000
+Variação Azul
+	navBackground 	= #5388d5
+	navText       	= #FFFFFF
+	textHeaderInfo	= #000000
+	footerTitle		= #798ca7
+	background    	= background_azul.jpg
+	linkSidebar		= #3D79D0
+	logoText		= #000000
+	sublinkSidebar  = #4c4c4c
+	backgroundCart	= #b6d2fa
 
-Variante Naranja
-	button_color		= #FF8C19
-	links_color		 	= #000000
-	border_color     	= #FFB508
-	links_hover        	= #000000
+Variação Cinza
+	navBackground 	= #606060
+	navText       	= #FFFFFF
+	textHeaderInfo	= #000000
+	footerTitle		= #3c3c3d
+	background    	= background_cinza.jpg
+	linkSidebar		= #000000
+	logoText		= #000000
+	sublinkSidebar  = #4c4c4c
+	backgroundCart	= #cdcdcd
 
-Variante Azul
-	button_color		= #144156
-	links_color		 	= #F20C0C
-	border_color     	= #bed9ee
-	links_hover        	= #327C8C
-	
-Variante Violeta
-	button_color		= #000000
-	links_color		 	= #C102B4
-	border_color     	= #C102B4
-	links_hover        	= #73086C
+Variação Vermelha
+	navBackground 	= #e00019
+	navText       	= #FFFFFF
+	textHeaderInfo	= #000000
+	footerTitle		= #B50B0B
+	background    	= background_vermelho.jpg
+	linkSidebar		= #e00019
+	logoText		= #000000
+	sublinkSidebar  = #4c4c4c
+	backgroundCart	= #cdcdcd

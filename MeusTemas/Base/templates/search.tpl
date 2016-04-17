@@ -1,16 +1,15 @@
-{% paginate by 18 %}
-<div id="excerpt">
-	<h1>{{ "Resultados de búsqueda" | translate }}</h1>
-</div>
-
-{% if products %}
-<ul id="products" class="product-grid clear">
+{% snipplet "sidebar.tpl" %}
+{% paginate by 9 %}
+<div id="content" class="single">
+  <h1 class="title">{{ "Resultados da pesquisa" | translate }}</h1>
+  <div class="listado"> {% if products %}
     {% snipplet "product_grid.tpl" %}
-</ul>
-{% endif %}
-
-<div id="paginate">
-	<div>
-		{% snipplet "pagination.tpl" %}
-	</div>
+    {% else %}
+    <p class="single">{{ "Não há resultados para a sua pesquisa." | translate }}</p>
+    {% endif %} </div>
+  <div class="clear"></div>
+  <div id="pages"> {% snipplet "pagination.tpl" %}
+    <div class="clear"></div>
+  </div>
 </div>
+<!--content-->

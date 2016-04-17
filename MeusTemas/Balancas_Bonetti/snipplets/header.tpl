@@ -57,10 +57,13 @@
             </div>
             
             <div class="busca">
-                <input type="text" class="form-control" placeholder="Buscar">
-                <a href="">
+                <form action="{{ store.search_url }}" method="get">
+                    <input type="text" class="form-control"  name="q" placeholder="Buscar"/>
+                    <input class="submit-search" type="submit" value=""/>
+                </form>
+                <!--<a href="">
                     {{ "img/icone_botao.png" | static_url | img_tag("Icone Busca")}}
-                </a>
+                </a>-->
             </div>
                 
         </header>

@@ -1,7 +1,7 @@
-primary
-	name = Principal
-	description = Pon aquí los productos que más quieras destacar
-	
-secondary
-	name = Secundario
-	description = Pon aquí productos destacados de menor importancia
+slider
+	name = Slide Show
+	description = Os produtos do Slide Show passam em forma de destaque na Home da sua loja (banner rotativo)
+
+home
+	name = Destaque Secundário
+	description = Estes produtos são listados na parte inferior da Home da sua loja

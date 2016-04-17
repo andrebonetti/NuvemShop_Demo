@@ -61,7 +61,7 @@
             </div>
                 
             <p class="valor" itemprop="price" {% if not product.display_price %}class="no-view"{% endif %}>Preço: {{ product.price | money }}</p>
-
+            
             <!--<p class="cep-p">Digite se Cep para calcular o frete: </p>
             <input class="form-control cep-input" type="text">-->
                 
@@ -71,7 +71,7 @@
                 
             {% if product.free_shipping %}
                 <div class="circle free-shipping">
-                    <p>{{ "Envío sin cargo" | translate }}</p>
+                    <p>Frete Grátis</p>
                 </div>
             {% endif %}
             

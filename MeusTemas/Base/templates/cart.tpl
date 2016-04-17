@@ -1,102 +1,106 @@
-<!-- START TITLE -->
-<div id="title" class="clear">
-	<h1>{{'Tu Carrito' | translate}}</h1>
-</div>
-<!-- END TITLE -->
-{% if not cart.items %}
-<p id="empty">{{ 'Tu carrito está vacío.' | translate }} <a href="{{store.products_url}}">{{'Seguir comprando...' | translate }}</a></p>
-{% else %}
-{% if error.add %}
-	<div class="error">{{ "No hay suficiente stock para agregar este producto al carrito." | translate }}</div>
-{% endif %}
-{% for error in error.update %}
-	<div class="error">{{ "No podemos ofrecerte {1} unidades de {2}. Solamente tenemos {3} unidades." | translate(error.requested, error.item.name, error.stock) }}</div>
-{% endfor %}
+<div id="shoppingCartPage" data-minimum="{{ settings.cart_minimum_value }}">
+{% if cart.items %}
+	<div id="content" class="carrito">
+		
+		<h1 class="title">{{ "Carrinho de Compras" | translate }}</h1>
+		
+		{% if error.add %}
+			<div class="error">{{ "Desculpe, mas não há estoque suficiente para incluir este produto ao carrinho." | translate }}</div>
+		{% endif %}
+		{% for error in error.update %}
+			<div class="error">{{ "Não podemos te oferecer {1} unidades do produto {2}. No momento, somente possuímos {3} unidades" | translate(error.requested, error.item.name, error.stock) }}</div>
+		{% endfor %}
+		<ul class="firstrow">
+            <li class="col-product">{{ "Produtos" | translate }}</li>
+            <li class="col-quantity">{{ "Quantidade" | translate }}</li>
+            <li class="col-price">{{ "Preço" | translate }}</li>
+            <li class="col-subtotal">{{ "Subtotal" | translate }}</li>
+        </ul>
+		<form action="" method="post">
+			<input type="hidden" name="mwp_change_quantities" value="1" />
+			<ul class="productos" >
+				{% for item in cart.items %}
+				<li class="productrow" data-item-id="{{ item.id }}">
+					<div class="thumb">{{ item.featured_image | product_image_url("thumb") | img_tag(item.featured_image.alt) }}</div>
+					<h3 class="title">{{ item.name }}</h3>
+					<div class="cantidad">
+						<div class="cant-input">
+						<input type="text" name="quantity[{{ item.id }}]" value="{{ item.quantity }}" data-item-id="{{ item.id }}" />
+						</div>
+						<div class="cant-ctas">
+						<button 
+                            type="button"
+                            class="item-plus hidden-phone" 
+                            onclick="LS.plusQuantity({{ item.id }})">
+                            <i class="fa fa-plus"></i></button>
+                        <button 
+                            type="button" 
+                            class="item-minus hidden-phone" 
+                            onclick="LS.minusQuantity({{ item.id }})">
+                            <i class="fa fa-minus"></i></button>
+                        </div>
+					</div>
+					
+					<span class="price">{{ item.unit_price | money }}</span>
+
+					<span class="col-subtotal">
+					<span data-item-variant="{{ item.product.selected_or_first_available_variant.id }}">{{ item.subtotal | money }}</span>
+					</span>
+
+					<button type="button" class="item-delete" onclick="LS.removeItem({{ item.id }})">&times;</button>
+
+					<div class="clear"></div>
+				</li>
+				{% endfor %}
+			</ul>
+		
+			<div class='subtotal-price' data-priceraw="{{ cart.total }}">
+                {{ "Subtotal" | translate }}: {{ cart.total | money }}
+            </div>
+            <div class='total-price' data-priceraw="{{ cart.total }}">
+                {{ "Total" | translate }}: {{ cart.total | money }}
+            </div>
+			
+            {% snipplet "shipping_cost_calculator.tpl" with shipping_calculator_show = settings.shipping_calculator_cart_page %}
+		 	{% if settings.continue_buying %}
+				<div class="button continue-shopping">
+					<a href="{{ store.products_url }}">&laquo; {{ "Continuar comprando" | translate }}</a>
+				</div>
+			{% endif %}
+			 {% set cart_total = (settings.cart_minimum_value * 100) %}
+                {% if cart.total >= cart_total %}
+					<div class="button iniciar">
+						<input id="go-to-checkout" type="submit" name="go_to_checkout" value="{{ "Finalizar Compra" | translate }}" />
+					</div>
+				 {% else %}
+                    <h3 class="lessthan pull-right">{{ "O valor mínimo de compra (subtotal) é de" | translate }} <strong>{{ cart_total | money }}</strong></h3>
+                {% endif %}
+
+		</form>
+
+		<div class="clear"></div>
+
+		<div id="error-ajax-stock" class="container hidden">
+            <div class='alert alert-warning alert-dismissible fade in' role='alert'>
+            <button type='button' class='close' onclick="jQuery(this).parent().parent().hide();">
+                <span aria-hidden='true'>×</span></button>
+            <strong>Error</strong> {{ "Desculpe, mas não há estoque suficiente para incluir este produto ao carrinho." | translate }}
+            </div>
+        </div>
+
+        <div id="store-curr" class="hidden">{{ store.currency }}</div>
+				
+	</div><!--content-->
 	
-<form action="" method="post" name="cartform">
-	<!-- START TABLE -->
-	<table cellpadding="0" cellspacing="0">
-		<!-- START HEADERS -->
-		<tr>
-			<th colspan="2" class="start">{{'Descripción' | translate }}</th>
-			<th>{{'Precio' | translate }}</th>
-			<th>{{'Cantidad' | translate}}</th>
-			<th>{{'Eliminar' | translate }}</th>
-			<th>{{'Subtotal' | translate}}</th>
-		</tr>
-		<!-- END HEADERS -->{% for item in cart.items %}
-		<!-- START PRODUCT {{ forloop.index }} -->
-		<tr {% if loop.index % 2 == 0 %}class="even"{% else %}class="odd"{% endif %} >
-			<td class="pic">
-				<div><a href="{{ item.url }}">{{ item.featured_image | product_image_url("tiny") | img_tag(item.name) }}</a></div>
-			</td>
-			<td>
-				<h3><a href="{{ item.url }}">{{ item.name }}</a></h3>
-			</td>
-			<td>{{ item.unit_price | money }}</td>
-			<td><input type="text" class="field" name="quantity[{{ item.id }}]" value="{{ item.quantity }}" /></td>
-			<td class="remove"><a href="#" onclick="LS.removeItem({{ item.id }})">{{ "Eliminar" | translate }}</a></td>
-			<td><strong>{{ item.subtotal | money }}</strong></td>
-		</tr>
-		<!-- END PRODUCT {{ forloop.index }} -->{% endfor %}
-	</table>
-	<!-- END TABLE -->
-	<!-- START TOTAL -->
-	<div id="total" class="clear">
-		<!-- START CONTINUE -->
-		<div id="continue">
-			<p>{{'¿No estás listo para finalizar la compra?' | translate}} <a href="{{ store.products_url }}" class="button">{{ "Seguir comprando..." | translate }}</a></p>
-		</div>
-		<!-- END CONTINUE -->
-		<!-- START PRICE -->
-		<div id="price"> 
-			<h3>{{ "Total" | translate }}: <span>{{ cart.total | money }}</span></h3>
-		</div>
-		<!-- END PRICE -->
-	</div>
-	<!-- END TOTAL -->
-	{% if settings.shipping_calculator %}
-	<div id="shipping-calculator">
-		<span>{{ "Ingrese aquí su código postal para calcular su costo de envío" | translate }}:</span>
-		<input type="text" name="zipcode" id="shipping-zipcode"/>
-		<button id="calculate-shipping-button" class="button">{{ "Calcular costo de envío" | translate }}</button>
-		<span class="hidden loading"></span>
-		<span class="hidden" id="invalid-zipcode">{{ "El código postal es inválido." | translate }}</span>
-	</div>
-	{% endif %}
-	<!-- START COMPLETE -->
-	<div id="complete" class="clear">
-		<!-- START CHECKOUT -->
-
-<div id="checkout">
-	<input class="update" type="submit" name="update" value="{{ 'Cambiar Cantidades' | translate }}" id="change-quantities"/> {{ 'o' | translate }}
-	<input class="checkout" type="submit" name="go_to_checkout" value="{{ 'Iniciar Compra' | translate }}" />
+{% else %}
+{% snipplet "sidebar.tpl" %}				
+	<div id="content" class="single">
+		<h2 class="title">{{ (error ? "Desculpe, mas não há estoque suficiente para incluir este produto ao carrinho." : "O carrinho de compras está vazio.") | translate }} <small>{{ "Talvez você se interesse pelos seguintes produtos:" | translate }}</small></h2>
+        <div class="listado">
+		{% snipplet "product_grid.tpl" with products = sections.slider.products %}
+        </div>
+		<div class="clear"></div>
+	</div><!--content-->
+	
+{% endif %}
 </div>
-		<!-- END CHECKOUT -->
-	</div>
-	<!-- END COMPLETE -->
-</form>{% endif %}
-
-<script type="text/javascript">
-	jQuery(document).ready(function($){
-		$(".col-quantity input").keypress(function(){
-			$('#change-quantities').show();
-		});
-		$("#calculate-shipping-button").click(function() {
-			params = {'zipcode': $("#shipping-zipcode").val()};
-			$("#shipping-calculator .loading").show();
-			$("#invalid-zipcode").hide();
-			$.post('{{store.shipping_calculator_url | escape('js')}}', params, function(data) {
-				$("#shipping-calculator .loading").hide();
-				if(data.success) {
-					$("#shipping-calculator").html(data.html);
-				} else {
-					$("#invalid-zipcode").show();
-				}
-			}, 'json');
-			return false;
-		});
-		$("#shipping-calculator .loading").hide();
-	});
-</script>
-

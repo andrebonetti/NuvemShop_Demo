@@ -1,13 +1,14 @@
-<div id="breadcrumb" itemscope itemtype="http://www.schema.org/WebPage" itemid="body">
-    <div itemprop="breadcrumb">
-        <a class="crumb" href="{{ store.url }}" title="{{ store.name }}">{{ "Inicio" | translate }}</a>
+<div itemscope itemtype="http://www.schema.org/WebPage" itemid="body">
+    <ul class="breadcrumb" itemprop="breadcrumb">
+
+        <li><a  href="{{ store.url }}" title="{{ store.name }}">{{ "Início" | translate }}</a><span class="separator">&gt;</span></li>
         {% for crumb in breadcrumbs %}
-            <span class="separator">&gt;</span>
+
             {% if crumb.last %}
-                <strong class="crumb last">{{ crumb.name }}</strong>
+                <li><strong>{{ crumb.name }}</strong></li>
             {% else %}
-                <a class="crumb" href="{{ crumb.url }}" title="{{ crumb.name }}">{{ crumb.name }}</a>
+                <li><a href="{{ crumb.url }}" title="{{ crumb.name }}">{{ crumb.name }}</a><span class="separator">&gt;</span></li>
             {% endif %}
         {% endfor %}
-    </div>
+    </ul>
 </div>

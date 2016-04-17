@@ -1,81 +1,96 @@
-{% if settings.home_display == "slider" or settings.home_display == "both" %}
-    <div class="slider-wrapper theme-light">
-        <div class="nivoSlider">
-            {% for slide in settings.slider %}
-                {% set slide_img = slide.image | static_url %}
-                {% if slide.link is empty %}
-                    <img src="{{ slide_img }}" data-thumb="{{ slide_img }}" alt="" />
-                {% else %}
-                    <a href="{{ slide.link }}"><img src="{{ slide_img }}" data-thumb="{{ slide_img }}" alt="" /></a>
-                {% endif %}
-            {% endfor %}
+{% snipplet "sidebar.tpl" %}
+<div id="content">
+    {% if sections.slider.products %}
+	    <div id="slider">
+	        <ul class="home-slider">
+	        {% for product in sections.slider.products | take(9) %}
+	            <li>
+	                <a class="picture" href="{{ product.url }}" title="{{ product.name }}">
+	                    {{ product.featured_image | product_image_url("huge") | img_tag(product.featured_image.alt) }}
+	                </a>
+	                <div class="description">
+	                    <h2 class="title">{{ product.name | a_tag(product.url) }}</h2>
+	                    {% if product.display_price %}
+	                        {% if product.compare_at_price %}
+	                            <del>{{ product.compare_at_price | money }}</del>
+	                        {% endif %}
+	                        <div class="price">{{ product.price | money }}</div>
+	                        <div>
+	                        	{% if product.show_installments %}
+			                        {% set max_installments_without_interests = product.get_max_installments(false) %}
+			                        {% if max_installments_without_interests %}
+			                            <span class="max_installments">{{ '<strong>{1}x</strong> de <strong>{2}</strong> sem juros' | t(max_installments_without_interests.installment, max_installments_without_interests.installment_data.installment_value_cents | money) }}</span>
+			                        {% else %}
+			                            {% set max_installments_with_interests = product.get_max_installments %}
+			                            {% if max_installments_with_interests %}
+			                                <span class="max_installments">{{ '<strong>{1}x</strong> de <strong>{2}</strong>' | t(max_installments_with_interests.installment, max_installments_with_interests.installment_data.installment_value_cents | money) }}</span>
+			                            {% endif %}
+			                        {% endif %}
+			                    {% endif %}
+			                  </div>
+	                    {% endif %}
+	                    <div class="button detalles">
+	                        {{ "Ver Detalhes" | translate | a_tag(product.url) }}
+	                     </div>
+	                </div><!--description-->
+	            </li>
+	        {% else %}
+	            {% for i in 1..3 %}
+	                <li>
+	                    <a class="picture" href="#">
+	                        {{ 'images/slider-default.png' | static_url | img_tag }}
+	                    </a>
+	                    <div class="description">
+	                        <h2 class="title">{{ "Produto" | translate }}</h2>
+	                        <div class="price">{{ "R$0.00" | translate }}</div>
+	                        <div class="button detalles">
+	                            {{ "Ver Detalhes" | translate | a_tag }}
+	                        </div>
+	                    </div>
+	                </li>
+	            {% endfor %}
+	        {% endfor %}
+	        </ul>
+	    </div><!--slider-->
+    {% elseif settings.slider and settings.slider is not empty %}
+        <div class="slider-wrapper theme-light">
+            <ul class="homeslider bxslider">
+                {% for slide in settings.slider %}
+                    {% set slide_img = slide.image | static_url %}
+                    {% if slide.link is empty %}
+                        <li><img src="{{ slide_img }}"/></li>
+                    {% else %}
+                        <li><a href="{{ slide.link }}"><img src="{{ slide_img }}"/></a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
-    </div>
-{% endif %}
-{% if settings.home_display == "products" or settings.home_display == "both" %}
-<div id="showcase" class="clear">
-{% for product in sections.primary.products | take(1) %}
-	<div id="details">
-		<h3>{{ product.name }}</h3>
-		{% if product.display_price %}
-		<h4>{{ product.price | money }}</h4>
-        {% if product.compare_at_price %}
-        <h4><del>{{ product.compare_at_price | money }}</del></h4>
-        {% endif %}
-        {% endif %}
-		<div class="share">
-			<div class="shareItem twitter">
-				{{product.social_url | tw_share('none', 'Tweet', store.twitter_user, current_language.lang) }}
-			</div>
-			<div class="shareItem google"> 
-				{{product.social_url | g_plus('medium') }}
-			</div>
-			<div class="shareItem facebook"> 
-				{{product.social_url | fb_like('store-product', 'button_count')}}
-			</div>
+    {% endif %}
+    {% if settings.banner_services_home %} 
+        {% include 'snipplets/banner-services.tpl' %}
+    {% endif %} 
+    {% if "banner.jpg" | has_custom_image %}
+        <div class="banner">
+            {% if settings.banner_url != '' %}
+            {{ "banner.jpg" | static_url | img_tag | a_tag(settings.banner_url) }}
+            {% else %}
+            {{ "banner.jpg" | static_url | img_tag }}
+            {% endif %}
+        </div>
+    {% endif %}
+	{% if sections.home.products %}
+	<div id="right">
+		<h2 class="title">{{ "Produtos em Destaque" | translate }}</h2>
+		<div id="destacados">
+			{% snipplet "product_grid.tpl" with products = sections.home.products, cols = 4 %}
 		</div>
-		<p>{{ product.description | plain | truncate(215) }}</p>
-		<h5 class="clear"><a href="{{ product.url }}">{{ 'Más detalles' | translate}}</a></h5>
-	</div>
-	<div id="image">
-		<a href="{{ product.url }}">{{ product.featured_image | product_image_url("medium") | img_tag(product.featured_image.alt) }}</a>
-	</div>
-{% endfor %}
-</div>
-{% endif %}
 
-{% if "banner-home.jpg" | has_custom_image %}
-    <div class="banner">
-        {% if settings.banner_home_url != '' %}
-            {{ "banner-home.jpg" | static_url | img_tag | a_tag(settings.banner_home_url) }}
-        {% else %}
-            {{ "banner-home.jpg" | static_url | img_tag }}
-        {% endif %}
-    </div>
-{% endif %}
+		<div class="clear"></div>
+	</div><!--left-->
 
-{% if settings.welcome_message %}
-<div id="excerpt">
-	<div>
-        {{ settings.welcome_message }}
-	</div>
-</div>
-{% endif %}
-<ul id="products" class="clear">
-{% for otherProduct in sections.secondary.products %}
-	<li {% if loop.index % 3 == 0 %}class="end"{% endif %}>
-		<div class="image">
-			<div class="overflow">
-				<div class="align">
-				{% if otherProduct.display_price %}
-					<h6>{{ otherProduct.price | money }}</h6>
-				{% endif %}
-					
-					<div><a href="{{ otherProduct.url}}">{{ otherProduct.featured_image | product_image_url("medium") | img_tag(otherProduct.featured_image.alt) }}</a></div>
-				</div>
-			</div>
-		</div>
-		<p><a href="{{ otherProduct.url}}">{{ otherProduct.name }}</a></p>
-	</li>
-{% endfor %}
-	</ul>
+
+	{% endif %}
+
+	<div class="clear"></div>
+
+</div><!--content-->

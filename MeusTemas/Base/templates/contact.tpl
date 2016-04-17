@@ -1,75 +1,92 @@
-{% if product %}
-<div id="cart">
-	<div id="content">
-	<table cellpadding="0" cellspacing="0">
-		<tr class="odd">
-			<td class="pic">
-				<div><a href="{{ product.url }}">{{ product.featured_image | product_image_url("tiny") | img_tag(product.name) }}</a></div>
-			</td>
-			<td>
-				<h3><a href="{{ product.url }}">{{ product.name }}</a></h3>
-			</td>
-		</tr>
-	</table>
-	</div>
-</div>
-{% endif %}
-<div id="overview" class="clear">	
-	<div class="headerBox">
-		<h1 id="title">{{ "Contacto" | translate }}</h1>
-	</div>
-	<div class="contentBox contact">
-		<div class="info">
-			{% if store.contact_intro %}
-				<p>{{ store.contact_intro }}</p>
-			{% endif %}
-		</div>
-		<div class="form">
-			{% if contact and contact.type == 'contact' %}
-				{% if contact.success %}
-					<div class="contact-ok">{{ "El mensaje ha sido enviado con éxito, muchas gracias." | translate }}</div>
-				{% else %}
-					<div class="contact-error">{{ "Debes completar los datos de contacto." | translate }}</div>
-				{% endif %}
-			{% endif %}
+<div id="content" class="contacto">
+	<h1 class="title">{{ "Contato" | translate }}</h1>
+	
+	<div class="text">
+    
+            {% if product %}
+		<h2>{{ "Produto seleccionado" | translate }} </h2>
+		<div class="prod_sel">
+			
+				<img src="{{ product.featured_image | product_image_url('small') }}" title="{{ product.name }}" alt="{{ product.featured_image.alt }}" class="img_ps" />
 		
-			<form class="contact_form" action="/winnie-pooh" method="post" onsubmit="$(this).attr('action', '');">
-				<input type="hidden" value="{{ product.id }}" name="product"/>
-
-				<div class="field">
-					<label for="name">{{ "Nombre" | translate }}</label>
-					<input type="text" class="field" id="name" name="name"/>
-				</div>
-			
-				<div class="field">
-					<label for="email">{{ "Email" | translate }}</label>
-					<input type="text" class="field" id="email" name="email"/>
-				</div>
-
-                <div class="field winnie-pooh">
-                    <label for="winnie-pooh">{{ "No completar este campo" | translate }}</label>
-                    <input id="winnie-pooh" type="text" name="winnie-pooh"/>
-                </div>
-			
-				<div class="field">
-					<label for="phone">
-						{{ "Teléfono" | translate }}
-						<span class="mini-text">({{ "Opcional" | translate }})</span>	
-					</label>
-					<input type="text" class="field" id="phone" name="phone"/>
-				</div>
-			
-				<div class="field">
-					<label for="message">
-						{{ "Mensaje" | translate }}
-						<span class="mini-text">({{ "Opcional" | translate }})</span>	
-					</label>
-					<textarea id="message" name="message" cols="20" rows="5"></textarea>
-				</div>		
-			
-				<input type="hidden" value="contact" name="type"/>
-				<input type="submit" class="submit" value="{{ 'Enviar' | translate }}" name="contact"/>
-			</form>
+			<div class="datos">
+				<em>{{ "Procurar por:" | translate }} </em><br />
+				{{ product.name | a_tag(product.url) }}
+			</div>
 		</div>
-	</div>
-</div>
+	{% endif %}
+		<p>{{ store.contact_intro }}</p>
+		<ul class="social">
+			{% if store.facebook %}
+				<li class="Facebook"><a target="_blank" href="{{ store.facebook }}">{{ "Curta nossa página no Facebook" | translate }}</a></li>
+			{% endif %}
+			{% if store.twitter %}
+				<li class="Twitter"><a target="_blank" href="{{ store.twitter }}">{{ "Siga-nos no Twitter" | translate }}</a></li>
+			{% endif %}			
+			{% if store.google_plus %}
+				<li class="google_plus"><a target="_blank" href="{{ store.google_plus }}">{{ "Adicione aos seus círculos" | translate }}</a></li>
+			{% endif %}			
+			{% if store.pinterest %}
+				<li class="pinterest"><a target="_blank" href="{{ store.pinterest }}">{{ "Siga-nos no Pinterest" | translate }}</a></li>
+			{% endif %}			
+			{% if store.instagram %}
+				<li class="instagram"><a target="_blank" href="{{ store.instagram }}">{{ "Siga-nos no Instagram" | translate }}</a></li>
+			{% endif %}
+            {% if store.phone %}
+				<li class="telefono">{{ store.phone }}</li>
+			{% endif %}
+			{% if store.email %}
+				<li class="mail"><a href="mailto:{{ store.email }}">{{ store.email }}</a></li>
+			{% endif %}
+			{% if store.blog %}
+                <li class="blog"><a target="_blank" href="{{ store.blog }}">{{ store.blog }}</a></li>
+            {% endif %}
+			{% if store.address %}
+				<li class="direccion">{{ store.address }}</li>
+			{% endif %}
+		</ul>
+	</div><!--text-->
+	
+	<form action="/winnie-pooh" method="post" onsubmit="$(this).attr('action', '');">
+		<input type="hidden" value="{{ product.id }}" name="product"/>
+
+		{% if contact and contact.type == 'contact' %}
+			{% if contact.success %}
+				<div class="contact-ok">{{ "A mensagem foi enviada com sucesso, muito obrigado." | translate }}</div>
+			{% else %}
+				<div class="contact-error">{{ "Verifique os dados digitados para que possamos entrar em contato." | translate }}</div>
+			{% endif %}
+		{% endif %}
+		
+		<label>{{ "Nome" | translate }}</label>
+		<input type="text" id="name" name="name"/>
+		<div class="clear"></div>
+		
+		<label>{{ "Telefone" | translate }} <span class="mini-text">(Opcional)</span></label>
+		<input type="text" id="phone" name="phone"/>
+		<div class="clear"></div>
+		
+		<label>{{ "E-mail" | translate }}</label>
+		<input type="text" id="email" name="email"/>
+		<div class="clear"></div>
+
+        <div class="winnie-pooh">
+            <label for="winnie-pooh">{{ "No completar este campo" | translate }}</label>
+            <input id="winnie-pooh" type="text" name="winnie-pooh"/>
+        </div>
+
+		<label>{{ "Consulta" | translate }} <span class="mini-text">(Opcional)</span></label>
+		<textarea name="message" rows="4" cols="6"></textarea>
+		<div class="clear"></div>
+		
+		<div class="button">
+			<input type="submit" value="{{ 'Enviar' | translate }}" name="contact" />
+		</div>
+		
+		
+		<div class="clear"></div>
+	</form>
+			
+	<div class="clear"></div>
+	
+</div><!--content-->

@@ -100,17 +100,16 @@ header:extend(.myContainer){
             
             border-radius: 2px 0 0 2px;
             height: 35px;
-        }
-        a{
+        } 
+        .submit-search{
             .float-config(right,10%);
-            background-color: @red-logo;
             height: 35px;
             
-            border-radius:0 2px 2px 0;
-            
-            img{
-                padding:8px 8px 8px 8px;
-            }
+            background-color: @red-logo;
+            background-image: url("../img/icone_botao.png");
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: 8px 5px;
         }
     }
     
@@ -726,6 +725,34 @@ aside.categorias_produtos{
         }
     }
 
+/* --- SEARCH --- */
+section.search:extend(.myContainer_content){
+    
+    h1:extend(.h1_content){}
+    
+    table{
+        tr{
+            
+            th{
+                font-weight: 600;
+                font-size: 1.2em;
+                padding-left: 0;
+            }
+            
+            td{
+                font-size: 1.05em;
+                
+                img{
+                    max-width: 200px;
+                    max-height: 200px;
+                }
+            }
+            
+        }
+    }
+
+}
+      
 /* --- MODAL --- */
 //CONTATO
 .modal{

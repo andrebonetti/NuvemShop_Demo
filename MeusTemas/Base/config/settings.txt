@@ -1,129 +1,175 @@
-Mensaje de Bienvenida
-	i18n_input
-		name = welcome_message
-		description = Escribe un mensaje de bienvenida
-
-Facebook
-	checkbox
-		name = show_footer_fb_like_box
-		description = Mostrar caja de Facebook en el footer (se debe configurar la página de Facebook en 'Información de contacto')
-	checkbox
-		name = show_product_fb_comment_box
-		description = Mostrar caja de comentarios de Facebook en la vista de un producto
-	text
-		name = fb_admins
-		description = ID del usuario moderador de los comentarios de Facebook (obtener <a target='_blank' href='http://findmyfacebookid.com/'>aquí</a>)
-
-Fuentes
+Cores
+	color
+		name = innerBackground
+		description = Cor de fundo
+	color
+		name = navBackground
+		description = Barra de navegação
+	color
+		name = navText
+		description = Textos em botões de barra de navegação
+	color
+		name = logoText
+		description = Texto para slogan
+	color
+		name = textHeaderInfo
+		description = Texto de telefone e e-mail
+	color
+		name = linkSidebar
+		description = Cor das categorias da barra lateral
+	color
+		name = sublinkSidebar
+		description = Cor das sub-categorias da barra lateral
+	color
+		name = backgroundCart
+		description = Cor de fundo do carrinho de compras
+Fontes
 	font
 		name = headings
-		description = Títulos
+		description = Titulos
 		values
-			Georgia,"Times New Roman",serif = Georgia
+			"Open Sans",sans-serif = Open Sans
 			Arial,sans-serif = Arial
 			Helvetica,Arial,sans-serif = Helvetica
 			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
 			Verdana,Geneva,sans-serif = Verdana
-			Tahoma,Geneva,sans-serif = Tahoma			
+			Tahoma,Geneva,sans-serif = Tahoma
 			"Palatino Linotype","Book Antiqua",Palatino,serif = Palatino Linotype
 			Impact,Charcoal,sans-serif = Impact
-			"Open Sans",sans-serif = Open Sans
 	font
 		name = navigationBar
-		description = Barra de navegación
+		description = Barra de navegação
 		values
-			Georgia,"Times New Roman",serif = Georgia
+			"Open Sans",sans-serif = Open Sans
 			Arial,sans-serif = Arial
 			Helvetica,Arial,sans-serif = Helvetica
 			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
 			Verdana,Geneva,sans-serif = Verdana
-			Tahoma,Geneva,sans-serif = Tahoma			
+			Tahoma,Geneva,sans-serif = Tahoma
 			"Palatino Linotype","Book Antiqua",Palatino,serif = Palatino Linotype
 			Impact,Charcoal,sans-serif = Impact
-			"Open Sans",sans-serif = Open Sans
 	font
 		name = navigationCategories
-		description = Categorías
+		description = Categorias da barra lateral
 		values
-			Georgia,"Times New Roman",serif = Georgia
+			"Open Sans",sans-serif = Open Sans
 			Arial,sans-serif = Arial
 			Helvetica,Arial,sans-serif = Helvetica
 			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
 			Verdana,Geneva,sans-serif = Verdana
-			Tahoma,Geneva,sans-serif = Tahoma			
+			Tahoma,Geneva,sans-serif = Tahoma
 			"Palatino Linotype","Book Antiqua",Palatino,serif = Palatino Linotype
 			Impact,Charcoal,sans-serif = Impact
-			"Open Sans",sans-serif = Open Sans
 	font
 		name = rest
-		description = Resto del sitio
+		description = Resto do site
 		values
-			Georgia,"Times New Roman",serif = Georgia
+			"Open Sans",sans-serif = Open Sans
 			Arial,sans-serif = Arial
 			Helvetica,Arial,sans-serif = Helvetica
 			"Times New Roman",Times,serif = Times New Roman
+			Georgia,"Times New Roman",serif = Georgia
 			Verdana,Geneva,sans-serif = Verdana
-			Tahoma,Geneva,sans-serif = Tahoma			
+			Tahoma,Geneva,sans-serif = Tahoma
 			"Palatino Linotype","Book Antiqua",Palatino,serif = Palatino Linotype
 			Impact,Charcoal,sans-serif = Impact
-			"Open Sans",sans-serif = Open Sans
-
-Colores
-	color
-		name = border_color
-		description = Bordes
-	
-	color
-		name = button_color
-		description = Fondos y botones
-		
-	color
-		name = links_color
-		description = Títulos y links
-		
-	color
-		name = links_hover
-		description = Links resaltados
-
-Página de inicio
-	dropdown
-		name = home_display
-		description = ¿Qué mostrar en la página de inicio?
-		values
-			products = Productos Destacados
-			slider = Slider
-			both = Ambos
-	checkbox
-		name = slider_auto
-		description = Cambiar la imagen de manera automática en el slider
+Imagens
 	gallery
 		name = slider
-		description = Selecciona las imágenes del slider (recomendamos que todas las imágenes sean del mismo tamaño con un ancho de 720px)
-		gallery_image = Selecciona una imagen
-		gallery_link = Link de la imagen (opcional)
-		gallery_width = 720
-
-Banners
+		description = Selecione as imagens que você utilizará no Slide Show
+		gallery_image = Anexar uma imagem
+		gallery_link = [Opcional] Endereço do site que o usuário entrará ao clicar na imagem
+		gallery_width = 690
+	checkbox
+		name = slider_auto
+		description = Alterar a imagem de maneira automática no Slide Show
 	image
-		original = banner-home.jpg
-		description = Elige un banner para la página de inicio (recomendamos utilizar imágenes de 728x90 px)
+		original = banner.jpg
+		description = Banner para a home (recomendamos utilizar imagens de 468x60 px)
 	i18n_input
-		name = banner_home_url
-		description = Link para el banner de la página de inicio (opcional)
+		name = banner_url
+		description = [Opcional] Endereço do site que o usuário entrará ao clicar no banner da home
 	image
-		original = banner-products.jpg
-		description = Elige un banner para el listado de productos (recomendamos utilizar imágenes de 728x90 px)
+		original = banner-seccion.jpg
+		description = Banner para as páginas de categorias (recomendamos utilizar imagens de 468x60 px)
 	i18n_input
-		name = banner_products_url
-		description = Link para el banner del listado de productos (opcional)
+		name = banner_seccion_url
+		description = [Opcional] Endereço do site que o usuário entrará ao clicar no banner das páginas de categorias
 	image
 		original = banner-sidebar.jpg
-		description = Elige un banner para la barra lateral (recomendamos utilizar imágenes de 120x600 px)
+		description = Banner para a barra lateral (recomendamos utilizar imagens de 160x600 px)
 	i18n_input
 		name = banner_sidebar_url
-		description = Link para el banner de la barra lateral (opcional)
-
-Listado de productos
+		description = [Opcional] Endereço do site que o usuário entrará ao clicar no banner da barra lateral
+Menus
+	menu
+		name = footer_menu
+		description = Que menu você deseja mostrar no final da página?
+Social
+	checkbox
+		name = fb_sidebar_likebox
+		description = Mostrar a caixa do Facebook no rodapé (é necessário antes preencher sua página do Facebook em 'Informação de contato')
+	checkbox
+		name = show_product_fb_comment_box
+		description = Mostrar a caixa dos comentários do Facebook na página de um produto
+	text
+		name = fb_admins
+		description = ID do usuário moderador dos comentários do Facebook (obter <a target='_blank' href='http://findmyfacebookid.com/'>aqui</a>)
+Opções gerais
+	checkbox
+		name = expand_subcategories
+		description = Deseja deixar as sub-categorias no menu lateral sempre visíveis?
+	i18n_input
+		name = description_store
+		description = Breve descrição da sua loja
+	dropdown
+		name = background
+		description = Escolha uma imagem de fundo pré-configurada
+		values
+			background_azul.jpg  = Degrade Azul
+			background_cinza.jpg  = Degrade Cinza
+			background_preto.jpg = Degrade Preto
+			background_vermelho.jpg  = Degrade Vermelho
+	image
+		original = custom_background.jpg
+		description = ou faça o upload da sua própria imagem de fundo
 	checkbox
 		name = infinite_scrolling
-		description = ¿Cargar productos automáticamente a medida que el visitante se desplaza?
+		description = Permitir que na apresentação dos produtos, os seus clientes carreguem novos produtos quando chegarem ao final da página?
+	text
+		name = cart_minimum_value
+		description = Valor mínimo de compra
+	checkbox
+		name = continue_buying
+		description = Mostrar o botão de 'Continuar comprando' no carrinho de compras
+Banner de Servicios
+	checkbox
+		name = banner_services
+		description = Mostrar el banner de servicios en toda la tienda (se verá arriba del footer)
+	checkbox
+		name = banner_services_home
+		description = Mostrar el banner de servicios solo en la home (se verá debajo del slider)
+	checkbox
+		name = banner_services_category
+		description = Mostrar el banner de servicios en la lista de productos (se verá arriba de los productos)
+	i18n_input
+		name = banner_services_01_title
+		description = Título del banner para envíos
+	i18n_input
+		name = banner_services_01_description
+		description = Descripción del banner para envíos
+	i18n_input
+		name = banner_services_02_title
+		description = Título del banner para tarjetas de crédito
+	i18n_input
+		name = banner_services_02_description
+		description = Descripción del banner para tarjetas de crédito
+	i18n_input
+		name = banner_services_03_title
+		description = Título del banner para seguridad
+	i18n_input
+		name = banner_services_03_description
+		description = Descripción del banner para seguridad
