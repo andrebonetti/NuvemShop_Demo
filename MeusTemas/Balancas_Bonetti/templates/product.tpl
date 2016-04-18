@@ -106,9 +106,18 @@
                             
                              {% if product.free_shipping %}
                                 <div class="circle free-shipping">
-                                    <p>{{ "Envío sin cargo" | translate }}</p>
+                                    <p class="alert alert-success">{{ "Envío sin cargo" | translate }}</p>
                                 </div>
                             {% endif %}
+                            
+                            <form id="product_form" method="post" action="{{ store.cart_url }}">
+                
+                                <input type="hidden" name="add_to_cart" value="{{product.id}}" />
+
+                                <input type="text" class="form-control carrinho-input" value="1" name="quantity{{ item.id }}" value="CALCULAR FRETE" />                                               
+                                <input type="submit" class="carrinho-btn" value="INCLUIR NO CARRINHO"/>
+
+                            </form>
                             
                         </div>
                         
