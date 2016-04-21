@@ -848,54 +848,81 @@ body{
                    margin-bottom: 5%;
                    font-weight: 600;
                }
-               p.cep-p{
-                    width: 100%;
-               }
-               input.cep-input{
+               
+               form{
                    
-                   .float-config(left,40%);
-                   text-align: center;
-                   height: 33px;
-                   background-color: @white-10;
-                   border-color: @orange-2;
-                   border-radius:4px 0 0 4px;
-                   border-width: 1px;                
+                   
+                   #shipping-calculator{
+
+                        p.cep-mensagem{
+                            width: 100%;
+                            margin-bottom: 7px;
+                        }
+                       
+                       #shipping-zipcode{
+                           
+                           .float-config(left,40%);
+                           text-align: center;
+                           height: 33px;
+                           background-color: @white-10;
+                           border-color: @orange-2;
+                           border-radius:4px 0 0 4px;
+                           border-width: 1px; 
+                           
+                       }
+                       
+                       #calculate-shipping-button{
+                           .float-config(right,60%);
+                           padding: 1%;
+                           color: @white-10;
+                           background: none;
+                           border: none;
+                           border:2px solid @orange-2;
+                           border-radius: 0 4px 4px 0;
+                           background-color:  @orange-2;  
+                           height: 33px;
+                        }
+                       
+                       #invalid-zipcode{
+                           margin-top: 50px;
+                       }
+                       
+                       #shipping-calculator-response{
+                          
+                           span{
+                                margin-bottom: 8px;
+                           }
+                           
+                       }
+                       
+                   }
+                                 
+                   input.carrinho-input{
+                       .float-config(left,25%);
+                       height: 33px;
+                       clear: both;
+                       margin-top: 2%; 
+                       text-align: center;
+                       border-color: @green-2;
+                       border-radius:4px 0 0 4px;
+                       border-width: 1px;
+                       background-color: @white-10;
+                   }
+
+                   input.carrinho-btn{
+                       .float-config(right,75%);
+                       background: none;
+                       border: none;
+                       margin-top: 2%;
+                       padding: 1%;
+                       color:@white-10;
+                       border:2px solid @green-2;
+                       border-radius: 0 4px 4px 0;
+                       background-color: @green-2;
+                       height: 33px;
+                   } 
+                   
                }
-               
-                .frete{
-                   .float-config(right,60%);
-                   padding: 1%;
-                   color: @white-10;
-                   background: none;
-                   border: none;
-                   border:2px solid @orange-2;
-                   border-radius: 0 4px 4px 0;
-                   background-color:  @orange-2;   
-               }
-               
-               input.carrinho-input{
-                   .float-config(left,25%);
-                   height: 33px;
-                   clear: both;
-                   margin-top: 2%; 
-                   text-align: center;
-                   border-color: @green-2;
-                   border-radius:4px 0 0 4px;
-                   border-width: 1px;
-                   background-color: @white-10;
-               }
-               
-               input.carrinho-btn{
-                   .float-config(right,75%);
-                   background: none;
-                   border: none;
-                   margin-top: 2%;
-                   padding: 1%;
-                   color:@white-10;
-                   border:2px solid @green-2;
-                   border-radius: 0 4px 4px 0;
-                   background-color: @green-2;
-               } 
                 
            }
        }
@@ -1129,7 +1156,52 @@ body{
         }
         
         .frete_calculator{
-            .float-config(left,200px);
+            .float-config(left,auto);
+            
+                #shipping-calculator{
+
+                        p.cep-mensagem{
+                            width: 100%;
+                            margin-bottom: 7px;
+                        }
+                       
+                       #shipping-zipcode{
+                           
+                           .float-config(left,40%);
+                           text-align: center;
+                           height: 33px;
+                           background-color: @white-10;
+                           border-color: @orange-2;
+                           border-radius:4px 0 0 4px;
+                           border-width: 1px; 
+                           
+                       }
+                       
+                       #calculate-shipping-button{
+                           .float-config(right,60%);
+                           padding: 1%;
+                           color: @white-10;
+                           background: none;
+                           border: none;
+                           border:2px solid @orange-2;
+                           border-radius: 0 4px 4px 0;
+                           background-color:  @orange-2;  
+                           height: 33px;
+                        }
+                       
+                       #invalid-zipcode{
+                           margin-top: 50px;
+                       }
+                       
+                       #shipping-calculator-response{
+                          
+                           span{
+                                margin-bottom: 8px;
+                           }
+                           
+                       }
+                       
+                   }
             
             input{
                 margin-bottom: 3%;
