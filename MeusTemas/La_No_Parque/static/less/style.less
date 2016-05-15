@@ -796,19 +796,44 @@ body{
            margin-bottom: 2%;
            
            .img-container{
-                .float-config(left,49%);
+                .float-config(left,59%);
                 display: table;
-                padding: 1%;
                 position: relative;
-               
-               .img-content{
+
+               .img-content,product-photos{
                    width: 100%;
-                   padding: 0;
                    
                    .current-photo{
-                       width: 270px; 
-                       height: 300px;
-                   }
+                       @altura_slide: 400px;
+                       
+                       width: 100%;                       
+                       height: @altura_slide;
+                       
+                          .current-photo-container{
+                              height: @altura_slide;
+                              
+                              .cloud-zoom-wrap{
+                                  height: @altura_slide;
+                                  
+                                  a.cloud-zoom{
+                                      height: @altura_slide;
+                                      
+                                      img{
+                                          max-height: @altura_slide;
+                                          background-color: @white-10;
+                                      }
+                                      .cloud-zoom-lens{
+                                          background-color: @white-10;
+                                      }
+                                  }
+                                  .mousetrap{
+                                  }
+                                  .cloud-zoom-big{
+                                        background-color: @white-10;
+                                   }
+                              }
+                          }
+                      }
                }
                
                .img-thumbs:extend(.full-container){
@@ -827,7 +852,7 @@ body{
            
            .conteudo{
                
-               .float-config(right,48%);
+               .float-config(right,40%);
                padding: 2%;
                margin-top: 1%;
                margin-right: 1%;

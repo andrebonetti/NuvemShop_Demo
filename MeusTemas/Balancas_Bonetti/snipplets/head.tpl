@@ -63,6 +63,8 @@
 
         {% endif %}
 
+        {% head_content %}
+
         <!------------------------------ CSS ------------------------------>
             <!-- NUVEMSHOP -->
             <!--{{ "screen.css" | static_url | css_tag }}-->
@@ -83,7 +85,5 @@
         <!------------------------------ JS ------------------------------>
             {{ 'js/jquery-2.1.3.min.js' | static_url | script_tag }}
             {{ 'js/bootstrap.js' | static_url | script_tag }}    
-
-        {% head_content %}
 
         <!--MEUS-->

@@ -16,7 +16,7 @@
                     {% snipplet "breadcrumbs.tpl" %}
                     
                     <div class="produto-detalhes">
-                        
+                                                
                         <div class="img-container">
             
                             <!--{{ product.featured_image | product_image_url('large') | img_tag(product.featured_image.alt) }}-->
@@ -48,7 +48,7 @@
 
                             </div>
 
-                        </div>
+                        </div>   
                         
                         <div class="detalhes">
                         
@@ -59,66 +59,55 @@
                                 <div class="description user-content">
                                     {{ product.description }}
                                 </div>
+                                
+                                <div class="extend-descricao">
+                                    <p>Leia Mais...</p>
+                                </div>
+
+                                <div class="hide-descricao">
+                                    <p>Ocultar Descrição</p>
+                                </div>
             
                             </div>
                             
-                            <div class="extend-descricao">
-                                <p>Leia Mais...</p>
-                            </div>
-
-                            <div class="hide-descricao">
-                                <p>Ocultar Descrição</p>
-                            </div>
-                            
-                            <div class="caracteristicas_tecnicas">
-                                
-                                <h2>Caracteristicas Técnicas:</h2>
-                                
-                                <p>Display:LCD</p>
-                                <p>Teclado:17 digitos</p>
-                                <p>Gabinete de Plastico ABS</p>
-                                <p>110/220(Bivolt)</p>
-                                <p>Tempo de Recarga:12h</p>
-                                
-                                
-                            </div>
-                            
-                            <div class="especificacoes">
-                                
-                                <h2>Especificações:</h2>
-                                
-                                <p>Capacidade: 30 Kg</p>
-                                <p>Precisão: 0.5 g</p>
-                                <p>Display: N</p>
-                                <p>Bateria: 140h</p>
-                                <p>Impressora: N</p>
-                                <p>Conexão: Comunicação Serial RS-232</p>
-                                
-                                <a href="http://www.toledobrasil.com.br/balanca/balancas-de-bancada/3400">Veja a descrição completa no site do fabricante</a>
-                                
-                            </div>
-                            
-                            <div class="calculo_frete"></div>
-                            
-                            <div class="valor">
-                                <p class="valor" itemprop="price" {% if not product.display_price %}class="no-view"{% endif %}>Preço: {{ product.price | money }}</p>
-                            </div>
-                            
-                             {% if product.free_shipping %}
-                                <div class="circle free-shipping">
-                                    <p class="alert alert-success">{{ "Envío sin cargo" | translate }}</p>
-                                </div>
-                            {% endif %}
-                            
                             <form id="product_form" method="post" action="{{ store.cart_url }}">
-                
+                                
+                                {% if product.variations_count > 1 %}  
+                                    <!-- if product.variations_count > 1 -->    
+                                
+                                    <div class="especificacoes">
+
+                                        <h2>Variações:</h2>
+
+                                        {% for variation in product.variations %}
+                                            <label class="variation-label" for="variation_{{loop.index}}">{{variation.name}}</label>
+                                            <select id="variation_{{loop.index}}" class="form-control" name="variation[{{ variation.id }}]">
+                                                {% for option in variation.options %}
+                                                    <option value="{{ option.id }}" {% if product.default_options[variation.id] == option.id %}selected="selected"{% endif %}>{{ option.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endfor %}
+
+                                    </div>
+                                
+                                {% endif %}
+                            
+                                <p class="valor" itemprop="price" {% if not product.display_price %}class="no-view"{% endif %}>Preço: {{ product.price | money }}</p>
+                            
+                                 {% if product.free_shipping %}
+                                    <div class="circle free-shipping">
+                                        <p class="alert alert-success">{{ "Envío sin cargo" | translate }}</p>
+                                    </div>
+                                 {% endif %}
+                            
+                            
                                 <input type="hidden" name="add_to_cart" value="{{product.id}}" />
                                 
                                 <!-- snipplet "shipping_cost_calculator.tpl" \/ -->    
                                 {% snipplet "shipping_cost_calculator.tpl" with shipping_calculator_show = settings.shipping_calculator_product_page and not product.free_shipping, shipping_calculator_variant = product.selected_or_first_available_variant %}
         
                                 <input type="text" class="form-control carrinho-input" value="1" name="quantity{{ item.id }}" value="CALCULAR FRETE" />                                               
-                                <input type="submit" class="carrinho-btn" value="INCLUIR NO CARRINHO"/>
+                                <input type="submit" class="carrinho-btn btn btn-success" value="INCLUIR NO CARRINHO"/>
 
                             </form>
                             

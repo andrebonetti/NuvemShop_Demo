@@ -4,184 +4,110 @@
 {{ "js/superfish.js" | static_url | script_tag }}
 
 <script type="text/javascript">
-        $(document).ready(function($) {
+    
+    $(document).ready(function($) {
 
         LS.registerOnChangeVariant(function(variant){
             $(".cloud-zoom-gallery[data-image="+variant.image+"] > img").click();
-        });
+    });
 
     //Navigation sizer
-            var $navigation = $("#navigation");
-            var $navigation_a = $navigation.find('a');
-            var navHeight = parseInt($navigation.css('height', 'auto').height());
-            var fontSize = parseInt($navigation_a.css('font-size'));
+        var $navigation = $("#navigation");
+        var $navigation_a = $navigation.find('a');
+        var navHeight = parseInt($navigation.css('height', 'auto').height());
+        var fontSize = parseInt($navigation_a.css('font-size'));
 
-            while (navHeight > 43 && fontSize > 9){
-                $navigation_a.css('font-size', --fontSize);
-                navHeight = parseInt($("#navigation").height());
-            }
+        while (navHeight > 43 && fontSize > 9){
+            $navigation_a.css('font-size', --fontSize);
+            navHeight = parseInt($("#navigation").height());
+        }
 
-            $("ul.sf-menu").superfish();
+        $("ul.sf-menu").superfish();
 
-            $(".tooltip").tipTip();
+        $(".tooltip").tipTip();
 
-            /*
-             $("#content .item .data .thumb").hover(function(){
-             $(this).find(".primary").fadeOut(200);
-             $(this).find(".secondary").fadeIn(200);
-             },
-             function(){
-             $(this).find(".secondary").fadeOut(200);
-             $(this).find(".primary").fadeIn(200);
-             });
-             */
-
-            /* homepage slider parameters */
-            $('.home-slider').bxSlider({
-                auto: {% if settings.slider_auto and sections.slider.products | length > 1 %}true{% else %}false{% endif %},
-                pause: 5000,
-                autoHover: true,
-                adaptiveHeight: false
+        /*
+        $("#content .item .data .thumb").hover(function(){
+            $(this).find(".primary").fadeOut(200);
+            $(this).find(".secondary").fadeIn(200);
+            },
+            function(){
+            $(this).find(".secondary").fadeOut(200);
+            $(this).find(".primary").fadeIn(200);
             });
+        */
 
-            var bxslider = $('.homeslider').bxSlider({
-                auto: {% if settings.slider_auto and settings.slider | length > 1 %}true{% else %}false{% endif %},
-                pause: 5000,
-                autoHover: true,
-                adaptiveHeight: false
-            });
+        /* homepage slider parameters */
+        $('.home-slider').bxSlider({
+           auto: {% if settings.slider_auto and sections.slider.products | length > 1 %}true{% else %}false{% endif %},
+           pause: 5000,
+           autoHover: true,
+           adaptiveHeight: false
+        });
 
-            // This condition works because in digital you cannot have a product slider and an images slider at the same time.
-            {% if (settings.home_display == 'slider' and settings.slider | length == 1) or
-                    (settings.home_display == 'products' and sections.slider.products | length == 1) %}
-                $('.bx-pager').remove();
-            {% endif %}
+        var bxslider = $('.homeslider').bxSlider({
+            auto: {% if settings.slider_auto and settings.slider | length > 1 %}true{% else %}false{% endif %},
+            pause: 5000,
+            autoHover: true,
+            adaptiveHeight: false
+        });
 
-            {% if provinces_json %}
+        // This condition works because in digital you cannot have a product slider and an images slider at the same time.
+        {% if (settings.home_display == 'slider' and settings.slider | length == 1) or
+            (settings.home_display == 'products' and sections.slider.products | length == 1) %}
+            $('.bx-pager').remove();
+        {% endif %}
+
+        {% if provinces_json %}
             $('select[name="country"]').change(function() {
                 var provinces = {{provinces_json | default('{}') | raw}};
                 LS.swapProvinces(provinces[$(this).val()]);
             }).change();
-            {% endif %}
+        {% endif %}
 
-            $(".col-quantity input").keypress(function(){
-                $('#change-quantities').show();
-            });
-
-            $("#calculate-shipping-button").click(function() {
-                var params = {'zipcode': $("#shipping-zipcode").val()};
-                var variant = $("#shipping-variant-id");
-                if(variant.length) {
-                    params['variant_id'] = variant.val();
-                }
-                var $shipping_calculator = $("#shipping-calculator");
-                var $shipping_calculator_loading = $shipping_calculator.find(".loading");
-                $shipping_calculator_loading.show();
-                $("#invalid-zipcode").hide();
-                $.post('{{store.shipping_calculator_url | escape('js')}}', params, function(data) {
-                    $shipping_calculator_loading.hide();
-                    if(data.success) {
-                        $("#shipping-calculator-response").html(data.html);
-                        $("#shipping-calculator-form, #shipping-calculator-response").toggle();
-                    } else {
-                        $("#invalid-zipcode").show();
-                    }
-                }, 'json');
-                return false;
-            });
-
-            $('.sort-by').change(function(){
-                var params = LS.urlParams;
-                params['sort_by'] = $(this).val();
-                var sort_params_array = [];
-                for (var key in params) {
-                    if ($.inArray(key, ['results_only', 'page']) == -1) {
-                        sort_params_array.push(key + '=' + params[key]);
-                    }
-                }
-                var sort_params = sort_params_array.join('&');
-                window.location = window.location.pathname + '?' + sort_params;
-            });
+        $(".col-quantity input").keypress(function(){
+            $('#change-quantities').show();
         });
-    </script>
 
-{% if template == "product" and product.variations %}
-            <!-- if template == "product" and product.variations -->   
-            <script type="text/javascript">
-                function changeVariant(variant){
-                    if (variant.price_long){
-                        $('#price_display').text(variant.price_long).show();
-                    } else {
-                        $('#price_display').hide();
-                    }
-
-                    if (variant.compare_at_price_long){
-                        $('#compare_price_display').text(variant.compare_at_price_long).show();
-                    } else {
-                        $('#compare_price_display').hide();
-                    }
-
-                    if (variant.installments && variant.installments > 1){
-                        $('#installments_number').text(variant.installments);
-                        $('#installments_amount').text(variant.installments_amount_short);
-                        $('.installments').show();
-                    } else {
-                        $('.installments').hide();
-                    }
-
-                    var button = $('#buy input');
-                    button.removeClass('cart').removeClass('contact').removeClass('nostock');
-                    {% if not store.is_catalog %}
-                    if (!variant.available){
-                        button.val('{{ "Sin stock" | translate }}');
-                        button.addClass('nostock');
-                        button.attr('disabled', 'disabled');
-                    } else if (variant.contact) {
-                        button.val('{{ "Consultar precio" | translate }}');
-                        button.addClass('contact');
-                        button.removeAttr('disabled');
-                    } else {
-                        button.val('{{ "Agregar al carrito" | translate }}');
-                        button.addClass('cart');
-                        button.removeAttr('disabled');
-                    }
-                    {% endif %}
+        $("#calculate-shipping-button").click(function() {
+            var params = {'zipcode': $("#shipping-zipcode").val()};
+            var variant = $("#shipping-variant-id");
+            if(variant.length) {
+                params['variant_id'] = variant.val();
+            }
+            var $shipping_calculator = $("#shipping-calculator");
+            var $shipping_calculator_loading = $shipping_calculator.find(".loading");
+            $shipping_calculator_loading.show();
+            $("#invalid-zipcode").hide();
+            $.post('{{store.shipping_calculator_url | escape('js')}}', params, function(data) {
+                $shipping_calculator_loading.hide();
+                if(data.success) {
+                    $("#shipping-calculator-response").html(data.html);
+                    $("#shipping-calculator-form, #shipping-calculator-response").toggle();
+                } else {
+                    $("#invalid-zipcode").show();
                 }
+            }, 'json');
+            return false;
+        });
 
-                $(document).ready(function(){
-                    $('#product_form').submit(function(){
-                        var button = $(this).find(':submit');
+        $('.sort-by').change(function(){
+            var params = LS.urlParams;
+            params['sort_by'] = $(this).val();
+            var sort_params_array = [];
+            for (var key in params) {
+                if ($.inArray(key, ['results_only', 'page']) == -1) {
+                    sort_params_array.push(key + '=' + params[key]);
+                }
+            }
+        var sort_params = sort_params_array.join('&');
+        window.location = window.location.pathname + '?' + sort_params;
+        });
+    });
+         
+</script>
 
-                        button.attr('disabled', 'disabled');
-                        if (button.hasClass('cart')){
-                            button.val('{{ "Agregando..." | translate }}');
-                        }
-                    });
-
-                    {% if provinces_json %}
-                    $('select[name="country"]').change(function() {
-                        var provinces = {{provinces_json | default('{}') | raw}};
-                        LS.swapProvinces(provinces[$(this).val()]);
-                    }).change();
-                    {% endif %}
-                });
-            </script>
-        {% endif %}
-
-
-        {% if template == "product" %}
-            <!-- if template == "product" and product.variations -->
-           {{ "jquery-slimbox-2-02.js" | static_url | script_tag }}
-        {% endif %}
-
-
-        <!-- "jquery-theme-1-0.js" | static_url | script_tag \/ -->   
-        {{ "jquery-theme-1-0.js" | static_url | script_tag }}
-        <!-- 'slider/slider.js' | static_url | script_tag \/ --> 
-        {{ 'slider/slider.js' | static_url | script_tag }}
-
-
-        <script type="text/javascript">
+<script type="text/javascript">
             $(function() {
                 $('.nivoSlider').nivoSlider({
                     animSpeed: 250,
@@ -192,8 +118,78 @@
             if({{ settings.slider | length == 1 ? 'true' : 'false' }}) {
                 $('.nivo-directionNav, .nivo-controlNav').remove();
             }
+</script>
+
+    {% if template == 'cart' %}
+    
+            {{ 'js/jquery.livequery.min.js' | static_url | script_tag }}
+    
+            <script type="text/javascript">
+                $(document).ready(function(){
+
+                // Key pressed in quantity input
+                $(".col-quantity input").keypress(function(e){
+                    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                        return false;
+                    }
+                });
+
+                // Quantity input focus out
+                $(".col-quantity input").focusout(function(e){
+                    var itemID = $(this).attr("data-item-id");
+                    var itemVAL = $(this).val();
+                    if(itemVAL==0) {
+                        var r = confirm("{{ '¿Seguro que quieres borrar este artículo?' | translate }}");
+                        if (r == true) {
+                            LS.removeItem(itemID);
+                        } else {
+                            $(this).val(1);
+                        }
+                    } else {
+                        LS.changeQuantity(itemID, itemVAL);
+                    }
+                });
+
+                // Clicked shipping method listener
+                $(document).on( "click", "input.shipping-method", function() {
+                    var shippingPrice = $(this).attr("data-price");
+                    $(this).click(function() {
+                        LS.addToTotal(shippingPrice);
+                    });
+                });
+
+                // Default shipping method listener
+                $('input.shipping-method:checked').livequery(function(){
+                    var shippingPrice = $(this).attr("data-price");
+                    LS.addToTotal(shippingPrice);
+                });
+
+            });
+        </script>
+    {% endif %} 
+        
+    {% if template == "product" %}
+        <script type="text/javascript">
+            
+            $(document).ready(function(){
+                slider = $('#productbxslider').bxSlider({
+                    nextText:'<i class="fa fa-chevron-right"></i>',
+                    prevText:'<i class="fa fa-chevron-left"></i>',
+
+                });
+
+                LS.registerOnChangeVariant(function(variant){
+                    var liImage = $('#productbxslider').find("[data-image='"+variant.image+"']");
+                    var selectedPosition = liImage.data('image-position');
+                    var slideToGo = parseInt(selectedPosition);
+                    slider.goToSlide(slideToGo);
+                });
+            });
+            
         </script>
 
+        
+    {% endif %}    
 
         {% if settings.infinite_scrolling and (template == 'category' or template == 'search') %}
             <!-- if settings.infinite_scrolling and (template == 'category' or template == 'search') -->
@@ -219,6 +215,9 @@
                 olark.identify('{{store.live_chat | escape('js')}}');/*]]>{/literal}*/</script>
                 <!-- end olark code -->
         {% endif %}
-
-        <!-- store.assorted_js | raw \/ -->
+   
         {{ store.assorted_js | raw }}
+        {{ "js/jquery-slimbox-2-02.js" | static_url | script_tag }}
+        {{ "js/jquery-theme-1-0.js" | static_url | script_tag }}> 
+        {{ 'slider/slider.js' | static_url | script_tag }}
+        {{ 'js/luxury.js' | static_url | script_tag }}

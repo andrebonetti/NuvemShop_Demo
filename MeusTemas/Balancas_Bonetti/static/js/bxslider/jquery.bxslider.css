@@ -36,16 +36,15 @@
 	background: #fff;
 }
 
-.bx-viewport {
-    height: auto !important;
-    max-height: 500px !important;
-}
-
 .bx-wrapper .bx-pager,
 .bx-wrapper .bx-controls-auto {
 	position: absolute;
 	bottom: -30px;
 	width: 100%;
+}
+
+.bx-viewport {
+    max-height: 500px !important;
 }
 
 /* LOADER */

@@ -473,6 +473,7 @@ section.produtos:extend(.myContainer_content){
         
     .produto-content{
         .float-config(right,75%);
+        margin-bottom: 30px;
         
          h1:extend(.h1_content){
             margin-top: 8px;
@@ -568,45 +569,81 @@ section.produtos:extend(.myContainer_content){
          .produto-detalhes:extend(.full-container){
              background-color: @white-10;
 
-             .img-content{
-                .float-config(left,60%);
-                 padding-top: 10px;
-                                
-                 .img-principal{
-                     width: 100%; 
-                     margin-bottom: 20px;
-                     height: 300px;
-                     padding: 2%;
-                     text-align: center;
-                     
-                    img{
-                        max-width: 100%;
-                        max-height: 300px;
-                    }
-                 }
-                 
-                 .imgs-boxes{
-                     width: 100%;
-                     display: table;
-                     
-                     .box{
-                        .float-config(left,20%);
-                         height: 75px;
-                         padding: 2%;
-                         
-                         img{
-                            max-width: 100%;
-                            max-height: 75px;
-                         }
-                     }
-                 }
-             }
+                .img-container{
+                    .float-config(left,59%);
+                    display: table;
+                    position: relative;
+
+                   .img-content,product-photos{
+                       width: 100%;
+
+                       .current-photo{
+                            @altura_slide: 350px;
+                       
+                            width: 100%;                       
+                            height: @altura_slide;
+                       
+                          .current-photo-container{
+                              height: @altura_slide;
+                              
+                              .cloud-zoom-wrap{
+                                  height: @altura_slide;
+                                  
+                                  a.cloud-zoom{
+                                      height: @altura_slide;
+                                      
+                                      img{
+                                          max-height: @altura_slide;
+                                          background-color: @white-10;
+                                      }
+                                      .cloud-zoom-lens{
+                                          background-color: @white-10;
+                                      }
+                                  }
+                                  .mousetrap{
+                                  }
+                                  .cloud-zoom-big{
+                                        background-color: @white-10;
+                                   }
+                              }
+                          }
+                      }
+                   }
+
+                   .img-thumbs:extend(.full-container){
+                       width: 100%;
+                       display: table;
+                       margin: 0;
+
+                       a{
+                           .inline-content(5%);
+                           padding: 1%;
+
+                           img{height:60px;}
+                       }
+                   }
+               }
              
              .detalhes{
                 .float-config(right,40%);
                  padding: 10px;
                  
                  background-color: @white-8;
+                 
+                 .descricao{
+                     
+                     .description{
+                         width: 100%;
+                         overflow: hidden;
+                     }
+                     
+                     .extend-descricao,.hide-descricao{
+                        cursor: pointer;
+                         color: @blue-4;
+                         float: right;
+                     }
+                     
+                 }
                  
                  h2{
                      margin-top: 12px;
@@ -620,11 +657,53 @@ section.produtos:extend(.myContainer_content){
                  p{
                      font-size: 0.95em;
                  }
-                
-                 .descricao{
-                    height: 200px;
-                    overflow: hidden; 
+                 
+                 form:extend(.full-container){                   
+                     margin-top: 15px;
+                     p.valor{
+                        font-size: 1.2em;
+                        color:@red-1;
+                        font-weight: 600
+                     }
+                     
+                     #shipping-calculator:extend(.full-container){
+                         margin-bottom: 5px;
+                         
+                        #shipping-calculator-form:extend(.full-container){
+                            
+                            .calcule-text{
+                                font-size: 1.1em;
+                                color: @black-8;
+                            }
+
+                            #shipping-zipcode{
+                                .float-config(left,95px);
+                            }
+
+                            #calculate-shipping-button{
+                                margin-left: 5px;
+                                .float-config(left,150px);   
+                            }
+                            
+                            #invalid-zipcode{
+                                margin-top: 50px;
+                            }
+
+                        }
+
+                    }
+
+                    .carrinho-input{
+                        .float-config(left,35px);
+                    }
+
+                    .carrinho-btn{
+                        margin-left: 5px;
+                        .float-config(left,210px);    
+                    }
+                     
                  }
+                
              }
 
          }
@@ -692,10 +771,9 @@ section.produtos:extend(.myContainer_content){
             }
            
         }
-    }       
-}
-
-aside.categorias_produtos{
+    }  
+    
+    aside.categorias_produtos{
         .float-config(left,23%);
         
         background-color: @white-10;
@@ -727,6 +805,9 @@ aside.categorias_produtos{
             border-color:@white-10;
         }
     }
+}
+
+
 
 /* --- SEARCH --- */
 section.search:extend(.myContainer_content){
