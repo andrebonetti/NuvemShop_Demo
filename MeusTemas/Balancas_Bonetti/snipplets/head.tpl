@@ -78,12 +78,18 @@
             {{ "css/reset.css" | static_url | css_tag }}
             {{ 'css/bootstrap.css' | static_url | css_tag }}
             {{ 'css/bootstrap-responsive.css' | static_url | css_tag }}
+            {{ 'css/jsson.css' | static_url | css_tag }}
                 
             <!--MYSTYLE-->
             {{ 'css/style.css' | static_url | css_tag }}
 
         <!------------------------------ JS ------------------------------>
+            <!--LIBS-->
             {{ 'js/jquery-2.1.3.min.js' | static_url | script_tag }}
-            {{ 'js/bootstrap.js' | static_url | script_tag }}    
+            {{ 'js/bootstrap.js' | static_url | script_tag }}  
+
+            {{ 'js/Jsson/jssor.js' | static_url | script_tag }} 
+            {{ 'js/Jsson/jssor.slider.js' | static_url | script_tag }} 
+            {{ 'js/Jsson/jssor.slide_full.js' | static_url | script_tag }} 
 
         <!--MEUS-->
