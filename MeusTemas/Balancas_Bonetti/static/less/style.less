@@ -628,6 +628,16 @@ section.produtos:extend(.myContainer_content){
                     background-color: @red-3;
                     border-radius: 2px;
                 }
+                
+                /* --- CONTROLE DE FILTROS --- */
+                
+                .nome_variante{
+                    display: none;
+                }
+                
+                .lista_opcoes_variante{
+                    display: none;
+                }
             }
             
         }
@@ -845,8 +855,9 @@ section.produtos:extend(.myContainer_content){
         }
     }  
     
-    aside.categorias_produtos{
+    .categorias_produtos{
         .float-config(left,23%);
+        margin-bottom: 10px;
         
         background-color: @white-10;
         .border(4px,@blue-3);
@@ -871,11 +882,16 @@ section.produtos:extend(.myContainer_content){
             border-width: 0 0 1px 0;
             border-color: @blue-3;*/
         }
-        a:hover,a.active{
+        a:hover,a.active,a.opcao_ativa{
             background-color: @red-3;
             color: @white-10;
             border-color:@white-10;
+            text-decoration: none;
         }
+    }
+    
+    .filtros_produtos{
+        //clear: both;
     }
 }
 

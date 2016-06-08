@@ -193,6 +193,10 @@
         
     {% endif %}    
 
+    {% if template == "category" %}
+        {{ 'js/my_script-category.js' | static_url | script_tag }} 
+    {% endif %} 
+
         {% if settings.infinite_scrolling and (template == 'category' or template == 'search') %}
             <!-- if settings.infinite_scrolling and (template == 'category' or template == 'search') -->
             <script type="text/javascript">

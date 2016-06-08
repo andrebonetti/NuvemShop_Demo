@@ -30,7 +30,15 @@
                 <h2 itemprop="name">{{ product.name }}</h2>
                 <p class="valor">{{ product.price | money }}</p>
                 <a href="{{ product_url_with_selected_variant }}" title="{{ product.name }}" class="btn-detalhes">Detalhes</a>
-
+                
+                {% for variation in product.variations %}
+                    <ul class="lista_opcoes_variante" name="{{variation.name}}">
+                        {% for option in variation.options %}
+                            <li class="opcao_variante {{variation.name}} {{variation.name}}-{{ option.name }}" name="{{ option.name }}">option.Id: {{ option.id }} - option.name {{ option.name }}</li>
+                        {% endfor %}
+                    </ul>    
+                {% endfor %}           
+                
             </div>
 
     {% endfor %}

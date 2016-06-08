@@ -72,9 +72,7 @@
                             
                             <form id="product_form" method="post" action="{{ store.cart_url }}">
                                 
-                                {% if product.variations_count > 1 %}  
-                                    <!-- if product.variations_count > 1 -->    
-                                
+
                                     <div class="especificacoes">
 
                                         <h2>Variações:</h2>
@@ -90,7 +88,6 @@
 
                                     </div>
                                 
-                                {% endif %}
                             
                                 <p class="valor" itemprop="price" {% if not product.display_price %}class="no-view"{% endif %}>Preço: {{ product.price | money }}</p>
                             
