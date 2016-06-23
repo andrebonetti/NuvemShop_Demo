@@ -4,7 +4,7 @@
 		       
         <div class="produtos-content">
         
-            <div class="slide-show slide-produtos" id="slider1_container">
+            <div class="slide-show slide-produtos" id="slider1_container" style="display:none;">
 
                 <!-- Slides Container -->
                 <div data-u="slides" class="slide-container">

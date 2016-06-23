@@ -80,7 +80,7 @@
                 <input type="hidden" name="add_to_cart" value="{{product.id}}" />
                 
                 <!-- snipplet "shipping_cost_calculator.tpl" \/ -->    
-                {% snipplet "shipping_cost_calculator.tpl" with shipping_calculator_show = settings.shipping_calculator_product_page and not product.free_shipping, shipping_calculator_variant = product.selected_or_first_available_variant %}
+                <!--{% snipplet "shipping_cost_calculator.tpl" with shipping_calculator_show = settings.shipping_calculator_product_page and not product.free_shipping, shipping_calculator_variant = product.selected_or_first_available_variant %}-->
                 
                 <input type="text" class="form-control carrinho-input" value="1" name="quantity{{ item.id }}" value="CALCULAR FRETE" />                                               
                 <input type="submit" class="carrinho-btn" value="INCLUIR NO CARRINHO"/>

@@ -6,7 +6,7 @@
         
         <!-- TITLE + DESCRIPTIONS -->
             <title>{{ page_title }}</title>
-            <link rel="shortcut icon" type="image/x-icon" href="//s3-sa-east-1.amazonaws.com/store-templates/templates/143/631/twig/static/img/Shortcut.png?1226250948" title="" >
+            <link rel="shortcut icon" type="image/x-icon" href="//s3-sa-east-1.amazonaws.com/store-templates/templates/132/369/twig/static/img/Shortcut.png?896040453" title="" >
             <meta name="description" content="{{ page_description }}" />
         
         <!-- IFS -->

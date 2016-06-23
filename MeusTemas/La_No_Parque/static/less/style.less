@@ -661,7 +661,7 @@ body{
         .slide-show{width: 100%;}
         
         h1{
-            margin-top: 3%;
+            margin-top: 0;
             padding-bottom: 1%;
             font-size: 1.4em;
             text-align: left;
@@ -1012,15 +1012,46 @@ body{
     /*BUSCA*/
     section.search{
         
-        table{
-            td.img-content{
-                width: 200px;
+        .boxes:extend(.full-container){
+            clear: both;
+
+            .box{ 
                 
-                img{
-                    max-width: 100%;
+                @media (min-width:801px){.inline-content(3%);}
+                
+                @media (min-width:1000px){
+                    .inline-content(4%);
+                    padding: 3.5%;
+                }
+                
+                @media (min-width:1350px){
+                    .inline-content(5%);
+                    padding:2%;
+                }    
+
+                a{
+                    .img-content{
+                        .lateral-margin(100%);
+                        height:130px;
+
+                        img{height: 130px;width: 100%;}
+                    }
+
+                    h3{
+                        margin:5% 0 2% 0;
+                        font-size: 1.1em;
+                        height: 80px;
+                        color:@black-8;
+                    }
+
+                    p.valor{
+                        color:@red-1;
+                    }
                 }
             }
         }
+        
+        
    }
 
     /*CONTA*/
@@ -1181,13 +1212,13 @@ body{
         }
         
         .frete_calculator{
-            .float-config(left,auto);
+            .float-config(left,50%);
             
                 #shipping-calculator{
 
                         p.cep-mensagem{
                             width: 100%;
-                            margin-bottom: 7px;
+                            margin-bottom: 24px;
                         }
                        
                        #shipping-zipcode{

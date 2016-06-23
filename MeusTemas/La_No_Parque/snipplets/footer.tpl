@@ -83,19 +83,19 @@
 
                                 <div class="social">
                                     <a href="https://www.facebook.com/lanoparque">
-                                        {{ "img/Face.png" | static_url | img_tag("Facebook La No Parque", {'class' : "link"}) }}
-                                        {{ "img/Face_hover.png" | static_url | img_tag("Facebook La No Parque", {'class' : "hover"})}}
+                                        {{ "img/Face_2.png" | static_url | img_tag("Facebook La No Parque", {'class' : "link"}) }}
+                                        {{ "img/Face_2.png" | static_url | img_tag("Facebook La No Parque", {'class' : "hover"})}}
                                         <p class="facebook">Facebook</p>
                                     </a>                                   
                                 </div>
                                 <div class="social">
                                     <a href="https://instagram.com/lanoparque">
-                                        {{ "img/Instagran.png" | static_url | img_tag("Instagran La No Parque", {'class' : "link"})}}
-                                        {{ "img/Instagran_hover.png" | static_url | img_tag("Instagran La No Parque", {'class' : "hover"})}}
-                                        <p class="insta">Instagran</p>
+                                        {{ "img/Instagran_2.png" | static_url | img_tag("Instagran La No Parque", {'class' : "link"})}}
+                                        {{ "img/Instagran_2.png" | static_url | img_tag("Instagran La No Parque", {'class' : "hover"})}}
+                                        <p class="insta">Instagram</p>
                                     </a>                                    
                                 </div>
-                                <div class="social">
+                                <div class="social" style="display:none;">
                                     <a href="https://twitter.com/lanoparque">
                                         {{ "img/Twitter.png" | static_url | img_tag("Twitter La No Parque", {'class' : "link"})}}
                                         {{ "img/Twitter_hover.png" | static_url | img_tag("Twitter La No Parque", {'class' : "hover"})}}

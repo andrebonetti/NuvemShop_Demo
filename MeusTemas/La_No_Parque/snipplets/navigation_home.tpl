@@ -107,6 +107,11 @@
                             {{ "img/Categorias/Veiculos_hover.png" | static_url | img_tag("Brinquedo Alfabetização", {'class' : "hover"})}}
                         {% endif %}
                         
+                        {% if item.name == 'Pintura'%}
+                            {{ "img/Categorias/Pintura.png" | static_url | img_tag("Brinquedo para Pintura", {'class' : "link"})}}
+                            {{ "img/Categorias/Pintura_hover.png" | static_url | img_tag("Brinquedo para Pintura", {'class' : "hover"})}}
+                        {% endif %}
+                        
                     </div>
                     <h3>{{ item.name }}</h3>
                 </a>	
