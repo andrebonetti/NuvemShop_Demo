@@ -1,5 +1,5 @@
 /* --- EXTEND CATEGORIAS ---*/
-var altura_total = $(".description").outerHeight()
+/*var altura_total = $(".description").outerHeight()
 altura_total = parseInt(altura_total) + 100; 
 $(".hide-descricao").hide();
 
@@ -20,4 +20,4 @@ var hide_descricao = function(){
 }
 
 $(".extend-descricao").on("click",show_descricao);
-$(".hide-descricao").on("click",hide_descricao);
+$(".hide-descricao").on("click",hide_descricao);*/

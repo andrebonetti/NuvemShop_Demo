@@ -48,18 +48,6 @@
                 
             <h1 itemprop="name">{{ product.name }}</h1>
             
-            <div class="description user-content">
-                {{ product.description }}
-            </div>
-            
-            <div class="extend-descricao">
-                <p>Leia Mais...</p>
-            </div>
-            
-            <div class="hide-descricao">
-                <p>Ocultar Descrição</p>
-            </div>
-                
             <p class="valor" itemprop="price" {% if not product.display_price %}class="no-view"{% endif %}>Preço: {{ product.price | money }}</p>
             
             <!--<p class="cep-p">Digite se Cep para calcular o frete: </p>
@@ -105,6 +93,16 @@
             </div>-->
                 
         </div>
+        
+        <div class="produto-descricao">
+            
+            <h2>{{ product.name }}</h2>
+                      
+            <div class="description user-content">
+                {{ product.description }}
+            </div>
+            
+        </div>
               
         <div id="related-products" class="produtos-relacionados">
         {% if product.metafields.related_products.html %}
@@ -138,36 +136,7 @@
         {% endif %}
     </div>
         
-    {% if installments_info %}
-     {% set gateways = installments_info | length %}
-    <div id="InstallmentsModal" class="modal hide fade{% if gateways <= '3' %} two-gates{% endif %}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <div class="installments">
-                <ul class="nav nav-tabs">
-                    {% for method, installments in installments_info %}
-                        <li id="method_{{ method }}" {% if loop.first %}class="active"{% endif %}><a href="#installment_{{ method }}_{{ installment }}" data-toggle="tab">{{ method == 'paypal_multiple' ? 'PAYPAL' : (method == 'itaushopline'? 'ITAU SHOPLINE' : method | upper) }}</a></li>
-                    {% endfor %}
-                </ul>
-                <div class="tab-content">
-                    {% for method, installments in installments_info %}
-                                <div class="tab-pane{% if loop.first %} active{% endif %}" id="installment_{{ method }}_">
-                                    <div class="span3">
-                                    {% for installment, data_installment in installments %}
-                                        <span id="installment_{{ method }}_{{ installment }}" >
-                                            <strong class="installment-amount">{{ installment }}</strong> x <strong class="installment-price">{{ data_installment.installment_value_cents | money }}</strong>
-                                            {% if data_installment.without_interests %} {{ 'sin interés' | t }}{% endif %}
-                                        </span>
-                                        {% if installment == 12 %}</div><div class="span3">{% endif %}
-                                    {% endfor %}
-                                    </div>
-                                </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div> 
-    {% endif %}
+    </div>    
 
 </section>
     
